@@ -1,0 +1,292 @@
+.head{
+    background-color: #002f49;
+     display: flex;
+     height: 50px;
+     align-items: center;
+     justify-content: flex-end;
+     padding: 0 80px;
+     }
+
+.linkedin-icon{
+    color: #fff;
+    font-size: 13px;
+    margin: 8px;
+}
+
+.instagram-icon{
+    color: #fff;
+    font-size: 13px;
+    margin: 8px;
+}
+
+.facebook-icon{
+    color: #fff;
+    font-size: 13px;
+    margin: 8px;
+}
+
+.slideDefault {
+    width: 100%;
+    overflow: hidden;
+    word-wrap: break-word;
+}
+
+.cta, .cta-content {
+    display: flex;
+    height: 600px;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Inter",sans-serif;
+    justify-content: space-between;
+}
+
+.cta-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background: #002f49;
+    width: 100%;
+    color: #fff;
+    padding: 50px 0 50px 50px;
+}
+
+.cta-content h2 {
+    font-size: 35px;
+    font-weight: 700;
+    padding: 0;
+    line-height: 1.2;
+}
+
+.cta-content p {
+    font-size: 20px;
+    line-height: 1.8;
+}
+
+.cta-image {
+    position: relative;
+    width: 50%;
+    height: 600px;
+    z-index: -5;
+}
+
+.cta-cut, .cta-cut:after {
+    width: 0;
+    height: 0;
+    position: absolute;
+    left: -80px;
+}
+.cta-cut {
+    border: 80px solid transparent;
+    border-bottom: 195px solid #002f49;
+    top: -120px;
+    z-index: 1;
+}
+
+.cta-cut:after {
+    content: "";
+    top: 194px;
+    border: 80px solid transparent;
+    border-top: 445px solid #002f49;
+}
+
+.slick-initialized .slick-slide {
+    display: block;
+}
+
+.cta-image img {
+    object-fit: cover;
+    display: block;
+    height: 600px;
+    width: auto;
+    object-position: right;
+}
+
+.img-wrapper{
+    max-width: 100%;
+    height: 65vw;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.noticias-title{
+    text-align: center;
+    padding: 10px 15px 30px;
+    font-size: 33px;
+    font-weight: 700;
+    color: #002f49;
+}
+
+.card{
+    width: 320px;
+    height: 420px;
+    overflow: hidden;
+}
+
+.landing-solutions-background {
+    height: 800px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.landing-solutions {
+    width: 1400px;
+    height: 600px;
+    border-radius: 10px;
+    background-image: url(https://raw.githubusercontent.com/Thomaslkapo/2-bootstrap-main/main/img/solution.b2c4b9f2.png);
+    background-repeat: no-repeat;
+    position: relative;
+}
+
+.landing-solutions h3 {
+    color: #f7c601;
+    font-size: 30px;
+    position: absolute;
+    top: 30px;
+    right: 77.2%;
+}
+
+.landing-solutions p {
+    color: #fff;
+    font-size: 18px;
+    position: absolute;
+    top: 90px;
+}
+
+.landing-solutions .cards-holder {
+    width: 100%;
+    position: absolute;
+    top: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.landing-solution-card {
+    width: 270px;
+    height: 420px;
+    background: #002f49;
+    border-radius: 5px;
+    position: relative;
+}
+
+.landing-solution-card img {
+    width: 100%;
+    height: auto;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+.landing-solution-card h4, .landing-solution-card p {
+    padding: 0 15px;
+}
+
+.landing-solution-card h4 {
+    color: #fff;
+    font-size: 20px;
+    position: absolute;
+    top: 220px;
+}
+
+.landing-solution-card p {
+    font-size: 16px;
+    padding: 0;
+    position: absolute;
+    top: 270px;
+    text-align: justify;
+}
+
+.landing-solution-card a, .landing-solution-card h4, .landing-solution-card p {
+    padding: 0 15px;
+}
+
+.landing-solution-card a {
+    text-decoration: none;
+    color: #f7c601;
+    font-size: 16px;
+    position: absolute;
+    left: 0;
+    bottom: 25px;
+}
+
+@media screen and (min-width: 1080px) {
+    .dropdown:hover .dropdown-menu {
+        display: block;
+    }
+}
+
+@media screen and (max-width: 1230px) {
+    .cta-content h2 {
+        font-size: 3vw;
+    }
+    .cta-content p {
+        font-size: 1vw;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .carousel-caption {
+        display: block !important;
+    }
+}
+
+.pgbr-carrossel-item{
+    height:300px;
+    align-items: center;
+}
+
+footer {
+    padding: 90px 90px 20px;
+    background: #002f49;
+    color: #fff;
+}
+
+footer h2 {
+    padding: 0;
+    margin: 0;
+    font-size: 24px;
+    font-weight: 400;
+}
+
+footer p {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.9;
+}
+
+.mainFooter {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.socialFooter {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    color: inherit;
+}
+
+.copyright {
+    font-size: 14px;
+}
+
+.clientes-title{
+    text-align: center;
+    padding: 10px 15px 30px;
+    font-size: 33px;
+    font-weight: 700;
+    color: #002f49;
+}
+
+.card2{
+    height: 100px;
+}
+
+.card-img-top2{
+    height: 3vw;
+}
