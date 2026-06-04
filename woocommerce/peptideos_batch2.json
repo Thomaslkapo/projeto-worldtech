@@ -1,0 +1,282 @@
+[
+  {
+    "name": "NEXUS GHK-CU 50mg",
+    "type": "variable",
+    "short_description": "NEXUS GHK-CU 50mg Ampola importado do Paraguai. Peptideo cobre anti-envelhecimento e regenerativo.",
+    "description": "<p>O <strong>NEXUS GHK-CU 50mg</strong> e um peptideo cobre da NEXUS em ampola de 50mg, com propriedades regenerativas e anti-inflamatorias comprovadas.</p><p><em>Produto importado do Paraguai. Consulte sempre um medico antes do uso.</em></p>",
+    "categories": [393, 374, 58],
+    "variations": [
+      { "apresentacao": "Ampola", "dosagem": "50mg", "varejo": 56, "atacado": 49 }
+    ]
+  },
+  {
+    "name": "NEXUS GHK-CU 100mg",
+    "type": "variable",
+    "short_description": "NEXUS GHK-CU 100mg Ampola importado do Paraguai. Peptideo cobre premium para longevidade.",
+    "description": "<p>O <strong>NEXUS GHK-CU 100mg</strong> e um peptideo cobre da NEXUS em ampola de 100mg para protocolos de longevidade e saude da pele.</p><p><em>Produto importado do Paraguai. Consulte sempre um medico antes do uso.</em></p>",
+    "categories": [393, 374, 58],
+    "variations": [
+      { "apresentacao": "Ampola", "dosagem": "100mg", "varejo": 72, "atacado": 65 }
+    ]
+  },
+  {
+    "name": "NEXUS GLOW 70mg",
+    "type": "variable",
+    "short_description": "NEXUS GLOW 70mg Ampola importado do Paraguai. Complexo peptideo para saude da pele.",
+    "description": "<p>O <strong>NEXUS GLOW 70mg</strong> e um complexo peptideo da NEXUS em ampola de 70mg para saude e rejuvenescimento da pele.</p><p><em>Produto importado do Paraguai. Consulte sempre um medico antes do uso.</em></p>",
+    "categories": [393, 374, 58],
+    "variations": [
+      { "apresentacao": "Ampola", "dosagem": "70mg", "varejo": 77, "atacado": 70 }
+    ]
+  },
+  {
+    "name": "NEXUS BPC-157 10mg",
+    "type": "variable",
+    "short_description": "NEXUS BPC-157 10mg Ampola importado do Paraguai. Peptideo regenerativo para articulacoes e tecidos.",
+    "description": "<p>O <strong>NEXUS BPC-157 10mg</strong> e o Body Protection Compound da NEXUS em ampola de 10mg para regeneracao de tecidos e saude articular.</p><p><em>Produto importado do Paraguai. Consulte sempre um medico antes do uso.</em></p>",
+    "categories": [393, 374, 58],
+    "variations": [
+      { "apresentacao": "Ampola", "dosagem": "10mg", "varejo": 52, "atacado": 45 }
+    ]
+  },
+  {
+    "name": "NEXUS TB-500 10mg",
+    "type": "variable",
+    "short_description": "NEXUS TB-500 10mg Ampola importado do Paraguai. Peptideo para recuperacao muscular.",
+    "description": "<p>O <strong>NEXUS TB-500 10mg</strong> (Timosina Beta-4) e um peptideo regenerativo da NEXUS em ampola de 10mg.</p><p><em>Produto importado do Paraguai. Consulte sempre um medico antes do uso.</em></p>",
+    "categories": [393, 374, 58],
+    "variations": [
+      { "apresentacao": "Ampola", "dosagem": "10mg", "varejo": 52, "atacado": 45 }
+    ]
+  },
+  {
+    "name": "NEXUS KLOW 80mg",
+    "type": "variable",
+    "short_description": "NEXUS KLOW 80mg Ampola importado do Paraguai. Complexo peptideo avancado.",
+    "description": "<p>O <strong>NEXUS KLOW 80mg</strong> e um complexo peptideo avancado da NEXUS em ampola de 80mg.</p><p><em>Produto importado do Paraguai. Consulte sempre um medico antes do uso.</em></p>",
+    "categories": [393, 374, 58],
+    "variations": [
+      { "apresentacao": "Ampola", "dosagem": "80mg", "varejo": 82, "atacado": 75 }
+    ]
+  },
+  {
+    "name": "USA PEPTIDES GHK-CU 50mg",
+    "type": "variable",
+    "short_description": "USA PEPTIDES GHK-CU 50mg Ampola importado do Paraguai. Peptideo cobre com padrao de pureza americano.",
+    "description": "<p>O <strong>USA PEPTIDES GHK-CU 50mg</strong> e um peptideo cobre da USA PEPTIDES em ampola de 50mg, produzido com padrao de pureza americano para protocolos de longevidade.</p><p><em>Produto importado do Paraguai. Consulte sempre um medico antes do uso.</em></p>",
+    "categories": [394, 374, 58],
+    "variations": [
+      { "apresentacao": "Ampola", "dosagem": "50mg", "varejo": 57, "atacado": 50 }
+    ]
+  },
+  {
+    "name": "USA PEPTIDES CJC+IPA 10mg",
+    "type": "variable",
+    "short_description": "USA PEPTIDES CJC-1295 + Ipamorelin 10mg Ampola importado do Paraguai. Combo secretagogo do GH para performance.",
+    "description": "<p>O <strong>USA PEPTIDES CJC+IPA 10mg</strong> e a combinacao de CJC-1295 (sem DAC) e Ipamorelin da USA PEPTIDES em ampola de 10mg, para estimulacao natural do hormonio de crescimento.</p><p><em>Produto importado do Paraguai. Consulte sempre um medico antes do uso.</em></p>",
+    "categories": [394, 374, 58],
+    "variations": [
+      { "apresentacao": "Ampola", "dosagem": "10mg", "varejo": 67, "atacado": 60 }
+    ]
+  },
+  {
+    "name": "USA PEPTIDES EPITHALON 10mg",
+    "type": "variable",
+    "short_description": "USA PEPTIDES EPITHALON 10mg Ampola importado do Paraguai. Peptideo para longevidade e regulacao celular.",
+    "description": "<p>O <strong>USA PEPTIDES EPITHALON 10mg</strong> e um tetrapeptideo da USA PEPTIDES em ampola de 10mg, estudado por seus efeitos na longevidade e regulacao dos telomeros.</p><p><em>Produto importado do Paraguai. Consulte sempre um medico antes do uso.</em></p>",
+    "categories": [394, 374, 58],
+    "variations": [
+      { "apresentacao": "Ampola", "dosagem": "10mg", "varejo": 57, "atacado": 50 }
+    ]
+  },
+  {
+    "name": "USA PEPTIDES MOTS-C 10mg",
+    "type": "variable",
+    "short_description": "USA PEPTIDES MOTS-C 10mg Ampola importado do Paraguai. Peptideo mitocondrial para longevidade.",
+    "description": "<p>O <strong>USA PEPTIDES MOTS-C 10mg</strong> e um peptideo mitocondrial da USA PEPTIDES em ampola de 10mg para suporte metabolico e longevidade.</p><p><em>Produto importado do Paraguai. Consulte sempre um medico antes do uso.</em></p>",
+    "categories": [394, 374, 58],
+    "variations": [
+      { "apresentacao": "Ampola", "dosagem": "10mg", "varejo": 62, "atacado": 55 }
+    ]
+  },
+  {
+    "name": "USA PEPTIDES NAD+ 500mg",
+    "type": "variable",
+    "short_description": "USA PEPTIDES NAD+ 500mg Ampola importado do Paraguai. Coenzima NAD+ para energia celular e longevidade.",
+    "description": "<p>O <strong>USA PEPTIDES NAD+ 500mg</strong> e a coenzima Nicotinamida Adenina Dinucleotideo (NAD+) da USA PEPTIDES em ampola de 500mg.</p><p>O NAD+ e essencial para o metabolismo energetico celular e esta diretamente associado a longevidade e saude mitocondrial.</p><p><em>Produto importado do Paraguai. Consulte sempre um medico antes do uso.</em></p>",
+    "categories": [394, 374, 58],
+    "variations": [
+      { "apresentacao": "Ampola", "dosagem": "500mg", "varejo": 77, "atacado": 70 }
+    ]
+  },
+  {
+    "name": "USA PEPTIDES SS-31 10mg",
+    "type": "variable",
+    "short_description": "USA PEPTIDES SS-31 10mg Ampola importado do Paraguai. Peptideo mitocondrial premium.",
+    "description": "<p>O <strong>USA PEPTIDES SS-31 10mg</strong> (Elamipretide) e um peptideo mitocondrial da USA PEPTIDES em ampola de 10mg para protecao celular.</p><p><em>Produto importado do Paraguai. Consulte sempre um medico antes do uso.</em></p>",
+    "categories": [394, 374, 58],
+    "variations": [
+      { "apresentacao": "Ampola", "dosagem": "10mg", "varejo": 67, "atacado": 60 }
+    ]
+  },
+  {
+    "name": "USA PEPTIDES SLUPP-332 10mg",
+    "type": "variable",
+    "short_description": "USA PEPTIDES SLUPP-332 10mg Ampola importado do Paraguai. Agonista ERR para metabolismo e performance.",
+    "description": "<p>O <strong>USA PEPTIDES SLUPP-332 10mg</strong> e um agonista ERR da USA PEPTIDES em ampola de 10mg para suporte ao metabolismo energetico.</p><p><em>Produto importado do Paraguai. Consulte sempre um medico antes do uso.</em></p>",
+    "categories": [394, 374, 58],
+    "variations": [
+      { "apresentacao": "Ampola", "dosagem": "10mg", "varejo": 77, "atacado": 70 }
+    ]
+  },
+  {
+    "name": "ALLUVI GLOW GHK-CU",
+    "type": "variable",
+    "short_description": "ALLUVI GLOW GHK-CU importado do Paraguai. Complexo peptideo premium com GHK-Cu para rejuvenescimento.",
+    "description": "<p>O <strong>ALLUVI GLOW GHK-CU</strong> e um complexo peptideo premium da ALLUVI combinando GHK-Cu para saude da pele e rejuvenescimento.</p><p>Formulacao exclusiva da ALLUVI com alta concentracao de peptideo cobre para resultados visiveis em longevidade e estetica.</p><p><em>Produto importado do Paraguai. Consulte sempre um medico antes do uso.</em></p>",
+    "categories": [397, 374, 58],
+    "variations": [
+      { "apresentacao": "Caneta", "dosagem": "70mg", "varejo": 117, "atacado": 110 }
+    ]
+  },
+  {
+    "name": "ALLUVI BPC-157 + TB-500",
+    "type": "variable",
+    "short_description": "ALLUVI BPC-157 + TB-500 40mg importado do Paraguai. Combo regenerativo premium para recuperacao e saude.",
+    "description": "<p>O <strong>ALLUVI BPC-157 + TB-500 40mg</strong> e um combo regenerativo premium da ALLUVI combinando dois dos peptideos mais eficazes para recuperacao de tecidos.</p><p><em>Produto importado do Paraguai. Consulte sempre um medico antes do uso.</em></p>",
+    "categories": [397, 374, 58],
+    "variations": [
+      { "apresentacao": "Ampola", "dosagem": "40mg", "varejo": 107, "atacado": 100 }
+    ]
+  },
+  {
+    "name": "GEN HEALTH GHK-CU 50mg",
+    "type": "variable",
+    "short_description": "GEN HEALTH GHK-CU 50mg Ampola importado do Paraguai. Peptideo cobre para longevidade e saude.",
+    "description": "<p>O <strong>GEN HEALTH GHK-CU 50mg</strong> e um peptideo cobre da GEN HEALTH em ampola de 50mg para protocolos de longevidade e saude da pele.</p><p><em>Produto importado do Paraguai. Consulte sempre um medico antes do uso.</em></p>",
+    "categories": [398, 374, 58],
+    "variations": [
+      { "apresentacao": "Ampola", "dosagem": "50mg", "varejo": 62, "atacado": 55 }
+    ]
+  },
+  {
+    "name": "GEN HEALTH GHK-CU 100mg",
+    "type": "variable",
+    "short_description": "GEN HEALTH GHK-CU 100mg Ampola importado do Paraguai. Peptideo cobre premium em alta concentracao.",
+    "description": "<p>O <strong>GEN HEALTH GHK-CU 100mg</strong> e um peptideo cobre da GEN HEALTH em ampola de 100mg para protocolos avancados de longevidade.</p><p><em>Produto importado do Paraguai. Consulte sempre um medico antes do uso.</em></p>",
+    "categories": [398, 374, 58],
+    "variations": [
+      { "apresentacao": "Ampola", "dosagem": "100mg", "varejo": 77, "atacado": 70 }
+    ]
+  },
+  {
+    "name": "CELLGENIC GHK-CU 50mg",
+    "type": "variable",
+    "short_description": "CELLGENIC GHK-CU 50mg Ampola importado do Paraguai. Peptideo cobre regenerativo e anti-envelhecimento.",
+    "description": "<p>O <strong>CELLGENIC GHK-CU 50mg</strong> e um peptideo cobre da CELLGENIC em ampola de 50mg para regeneracao tecidual e longevidade.</p><p><em>Produto importado do Paraguai. Consulte sempre um medico antes do uso.</em></p>",
+    "categories": [395, 374, 58],
+    "variations": [
+      { "apresentacao": "Ampola", "dosagem": "50mg", "varejo": 57, "atacado": 50 }
+    ]
+  },
+  {
+    "name": "CELLGENIC GHK-CU 100mg",
+    "type": "variable",
+    "short_description": "CELLGENIC GHK-CU 100mg Ampola importado do Paraguai. Peptideo cobre premium.",
+    "description": "<p>O <strong>CELLGENIC GHK-CU 100mg</strong> e um peptideo cobre da CELLGENIC em ampola de 100mg.</p><p><em>Produto importado do Paraguai. Consulte sempre um medico antes do uso.</em></p>",
+    "categories": [395, 374, 58],
+    "variations": [
+      { "apresentacao": "Ampola", "dosagem": "100mg", "varejo": 62, "atacado": 55 }
+    ]
+  },
+  {
+    "name": "CELLGENIC GLOW 80mg",
+    "type": "variable",
+    "short_description": "CELLGENIC GLOW 80mg Ampola importado do Paraguai. Complexo peptideo para saude e luminosidade.",
+    "description": "<p>O <strong>CELLGENIC GLOW 80mg</strong> e um complexo peptideo da CELLGENIC em ampola de 80mg para saude e rejuvenescimento.</p><p><em>Produto importado do Paraguai. Consulte sempre um medico antes do uso.</em></p>",
+    "categories": [395, 374, 58],
+    "variations": [
+      { "apresentacao": "Ampola", "dosagem": "80mg", "varejo": 72, "atacado": 65 }
+    ]
+  },
+  {
+    "name": "CELLGENIC KLOW 100mg",
+    "type": "variable",
+    "short_description": "CELLGENIC KLOW 100mg Ampola importado do Paraguai. Complexo peptideo avancado.",
+    "description": "<p>O <strong>CELLGENIC KLOW 100mg</strong> e um complexo peptideo avancado da CELLGENIC em ampola de 100mg.</p><p><em>Produto importado do Paraguai. Consulte sempre um medico antes do uso.</em></p>",
+    "categories": [395, 374, 58],
+    "variations": [
+      { "apresentacao": "Ampola", "dosagem": "100mg", "varejo": 77, "atacado": 70 }
+    ]
+  },
+  {
+    "name": "BIOGENESIS GHK-CU 100mg",
+    "type": "variable",
+    "short_description": "BIOGENESIS GHK-CU 100mg Ampola importado do Paraguai. Peptideo cobre com excelente custo-beneficio.",
+    "description": "<p>O <strong>BIOGENESIS GHK-CU 100mg</strong> e um peptideo cobre da BIOGENESIS em ampola de 100mg, com excelente custo-beneficio para protocolos de longevidade.</p><p><em>Produto importado do Paraguai. Consulte sempre um medico antes do uso.</em></p>",
+    "categories": [396, 374, 58],
+    "variations": [
+      { "apresentacao": "Ampola", "dosagem": "100mg", "varejo": 52, "atacado": 45 }
+    ]
+  },
+  {
+    "name": "BIOGENESIS SLU-PP-332 10mg",
+    "type": "variable",
+    "short_description": "BIOGENESIS SLU-PP-332 10mg Ampola importado do Paraguai. Agonista ERR para metabolismo.",
+    "description": "<p>O <strong>BIOGENESIS SLU-PP-332 10mg</strong> e um agonista ERR da BIOGENESIS em ampola de 10mg para suporte ao metabolismo energetico.</p><p><em>Produto importado do Paraguai. Consulte sempre um medico antes do uso.</em></p>",
+    "categories": [396, 374, 58],
+    "variations": [
+      { "apresentacao": "Ampola", "dosagem": "10mg", "varejo": 57, "atacado": 50 }
+    ]
+  },
+  {
+    "name": "BIOGENESIS GLOW 70mg",
+    "type": "variable",
+    "short_description": "BIOGENESIS GLOW 70mg Ampola importado do Paraguai. Complexo peptideo para saude e rejuvenescimento.",
+    "description": "<p>O <strong>BIOGENESIS GLOW 70mg</strong> e um complexo peptideo da BIOGENESIS em ampola de 70mg.</p><p><em>Produto importado do Paraguai. Consulte sempre um medico antes do uso.</em></p>",
+    "categories": [396, 374, 58],
+    "variations": [
+      { "apresentacao": "Ampola", "dosagem": "70mg", "varejo": 67, "atacado": 60 }
+    ]
+  },
+  {
+    "name": "BIOGENESIS PT-141 10mg",
+    "type": "variable",
+    "short_description": "BIOGENESIS PT-141 10mg Ampola importado do Paraguai. Peptideo para saude sexual.",
+    "description": "<p>O <strong>BIOGENESIS PT-141 10mg</strong> (Bremelanotida) e um peptideo da BIOGENESIS em ampola de 10mg.</p><p><em>Produto importado do Paraguai. Consulte sempre um medico antes do uso.</em></p>",
+    "categories": [396, 374, 58],
+    "variations": [
+      { "apresentacao": "Ampola", "dosagem": "10mg", "varejo": 47, "atacado": 40 }
+    ]
+  },
+  {
+    "name": "BIOGENESIS TESAMORELIN 10mg",
+    "type": "variable",
+    "short_description": "BIOGENESIS TESAMORELIN 10mg Ampola importado do Paraguai. Analogo do GHRH para reducao de gordura visceral.",
+    "description": "<p>O <strong>BIOGENESIS TESAMORELIN 10mg</strong> e um analogo do GHRH da BIOGENESIS em ampola de 10mg para reducao de gordura abdominal profunda.</p><p><em>Produto importado do Paraguai. Consulte sempre um medico antes do uso.</em></p>",
+    "categories": [396, 374, 58],
+    "variations": [
+      { "apresentacao": "Ampola", "dosagem": "10mg", "varejo": 67, "atacado": 60 }
+    ]
+  },
+  {
+    "name": "DRAGON ELITE GHK-CU",
+    "type": "variable",
+    "short_description": "DRAGON ELITE GHK-CU Capsula importado do Paraguai. Peptideo cobre em formula oral para longevidade.",
+    "description": "<p>O <strong>DRAGON ELITE GHK-CU</strong> e um peptideo cobre da DRAGON ELITE disponivel em formula oral (capsula), ideal para quem prefere a via de administracao por via oral.</p><p><em>Produto importado do Paraguai. Consulte sempre um medico antes do uso.</em></p>",
+    "categories": [399, 374, 58],
+    "variations": [
+      { "apresentacao": "Capsula", "dosagem": "10mg", "varejo": 57, "atacado": 50 }
+    ]
+  },
+  {
+    "name": "DRAGON ELITE SLU-PP-332",
+    "type": "variable",
+    "short_description": "DRAGON ELITE SLU-PP-332 Capsula importado do Paraguai. Agonista ERR em formula oral para metabolismo.",
+    "description": "<p>O <strong>DRAGON ELITE SLU-PP-332</strong> e um agonista ERR da DRAGON ELITE disponivel em capsula oral para suporte ao metabolismo energetico.</p><p><em>Produto importado do Paraguai. Consulte sempre um medico antes do uso.</em></p>",
+    "categories": [399, 374, 58],
+    "variations": [
+      { "apresentacao": "Capsula", "dosagem": "10mg", "varejo": 57, "atacado": 50 }
+    ]
+  }
+]

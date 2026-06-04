@@ -1,0 +1,247 @@
+[
+  {
+    "name": "BIONEXIS GHK-CU 50mg",
+    "type": "variable",
+    "short_description": "BIONEXIS GHK-CU 50mg importado do Paraguai. Disponivel em Caneta e Ampola injetavel. Peptideo anti-envelhecimento e regenerativo.",
+    "description": "<p>O <strong>BIONEXIS GHK-CU 50mg</strong> e um peptideo cobre (GHK-Cu) da BIONEXIS com 50mg, disponivel em caneta injetavel e ampola.</p><p>O GHK-Cu e reconhecido por suas propriedades regenerativas, anti-inflamatorias e antioxidantes, com ampla aplicacao em protocolos de longevidade e estetica.</p><p><em>Produto importado do Paraguai. Consulte sempre um medico antes do uso.</em></p>",
+    "categories": [390, 374, 58],
+    "variations": [
+      { "apresentacao": "Caneta", "dosagem": "50mg", "varejo": 137, "atacado": 130 },
+      { "apresentacao": "Ampola", "dosagem": "50mg", "varejo": 59,  "atacado": 52  }
+    ]
+  },
+  {
+    "name": "BIONEXIS GHK-CU 100mg",
+    "type": "variable",
+    "short_description": "BIONEXIS GHK-CU 100mg importado do Paraguai. Disponivel em Caneta e Ampola injetavel. Peptideo anti-envelhecimento premium.",
+    "description": "<p>O <strong>BIONEXIS GHK-CU 100mg</strong> e um peptideo cobre (GHK-Cu) da BIONEXIS com 100mg, disponivel em caneta injetavel e ampola.</p><p>A dosagem de 100mg oferece maior concentracao do peptideo para protocolos mais intensivos de longevidade, regeneracao e saude da pele.</p><p><em>Produto importado do Paraguai. Consulte sempre um medico antes do uso.</em></p>",
+    "categories": [390, 374, 58],
+    "variations": [
+      { "apresentacao": "Caneta", "dosagem": "100mg", "varejo": 112, "atacado": 105 },
+      { "apresentacao": "Ampola", "dosagem": "100mg", "varejo": 62,  "atacado": 55  }
+    ]
+  },
+  {
+    "name": "BIONEXIS GLOW",
+    "type": "variable",
+    "short_description": "BIONEXIS GLOW importado do Paraguai. Disponivel em Caneta e Ampola 70mg. Complexo peptideo para saude e rejuvenescimento da pele.",
+    "description": "<p>O <strong>BIONEXIS GLOW</strong> e um complexo peptideo exclusivo da BIONEXIS para saude, luminosidade e rejuvenescimento da pele, disponivel em caneta injetavel e ampola 70mg.</p><p>Formulacao premium que combina peptideos bioativos para resultados visiveis em saude cutanea e bem-estar geral.</p><p><em>Produto importado do Paraguai. Consulte sempre um medico antes do uso.</em></p>",
+    "categories": [390, 374, 58],
+    "variations": [
+      { "apresentacao": "Caneta", "dosagem": "70mg", "varejo": 182, "atacado": 175 },
+      { "apresentacao": "Ampola", "dosagem": "70mg", "varejo": 72,  "atacado": 65  }
+    ]
+  },
+  {
+    "name": "BIONEXIS KLOW",
+    "type": "variable",
+    "short_description": "BIONEXIS KLOW importado do Paraguai. Disponivel em Caneta e Ampola 80mg. Complexo peptideo avancado.",
+    "description": "<p>O <strong>BIONEXIS KLOW</strong> e um complexo peptideo avancado da BIONEXIS, disponivel em caneta injetavel e ampola 80mg.</p><p>Formulacao de alta performance para protocolos de saude e longevidade sob orientacao de profissional de saude.</p><p><em>Produto importado do Paraguai. Consulte sempre um medico antes do uso.</em></p>",
+    "categories": [390, 374, 58],
+    "variations": [
+      { "apresentacao": "Caneta", "dosagem": "80mg", "varejo": 197, "atacado": 190 },
+      { "apresentacao": "Ampola", "dosagem": "80mg", "varejo": 77,  "atacado": 70  }
+    ]
+  },
+  {
+    "name": "BIONEXIS SLU-PP-332",
+    "type": "variable",
+    "short_description": "BIONEXIS SLU-PP-332 importado do Paraguai. Disponivel em Caneta e Capsula. Agonista ERR para performance e metabolismo.",
+    "description": "<p>O <strong>BIONEXIS SLU-PP-332</strong> e um agonista do receptor ERR (Estrogen-Related Receptor) disponivel em caneta injetavel e capsula oral.</p><p>O SLU-PP-332 e estudado por seus efeitos no metabolismo energetico e performance fisica.</p><p><em>Produto importado do Paraguai. Consulte sempre um medico antes do uso.</em></p>",
+    "categories": [390, 374, 58],
+    "variations": [
+      { "apresentacao": "Caneta",  "dosagem": "10mg", "varejo": 142, "atacado": 135 },
+      { "apresentacao": "Capsula", "dosagem": "10mg", "varejo": 57,  "atacado": 50  }
+    ]
+  },
+  {
+    "name": "BIONEXIS BPC-157 10mg",
+    "type": "variable",
+    "short_description": "BIONEXIS BPC-157 10mg Ampola importado do Paraguai. Peptideo regenerativo para articulacoes e tecidos.",
+    "description": "<p>O <strong>BIONEXIS BPC-157 10mg</strong> e um peptideo regenerativo (Body Protection Compound) da BIONEXIS em ampola de 10mg.</p><p>O BPC-157 e amplamente estudado por seus efeitos na regeneracao de tecidos, cicatrizacao e saude articular.</p><p><em>Produto importado do Paraguai. Consulte sempre um medico antes do uso.</em></p>",
+    "categories": [390, 374, 58],
+    "variations": [
+      { "apresentacao": "Ampola", "dosagem": "10mg", "varejo": 62, "atacado": 55 }
+    ]
+  },
+  {
+    "name": "BIONEXIS AOD-9604 5mg",
+    "type": "variable",
+    "short_description": "BIONEXIS AOD-9604 5mg Ampola importado do Paraguai. Fragmento do hormonio de crescimento para emagrecimento.",
+    "description": "<p>O <strong>BIONEXIS AOD-9604 5mg</strong> e um fragmento do hormonio de crescimento humano (HGH) da BIONEXIS em ampola de 5mg.</p><p>O AOD-9604 e estudado por seus efeitos na queima de gordura sem os efeitos colaterais do HGH completo.</p><p><em>Produto importado do Paraguai. Consulte sempre um medico antes do uso.</em></p>",
+    "categories": [390, 374, 58],
+    "variations": [
+      { "apresentacao": "Ampola", "dosagem": "5mg", "varejo": 72, "atacado": 65 }
+    ]
+  },
+  {
+    "name": "BIONEXIS TB-500 10mg",
+    "type": "variable",
+    "short_description": "BIONEXIS TB-500 10mg Ampola importado do Paraguai. Peptideo para recuperacao muscular e regeneracao de tecidos.",
+    "description": "<p>O <strong>BIONEXIS TB-500 10mg</strong> (Timosina Beta-4) e um peptideo da BIONEXIS em ampola de 10mg para recuperacao muscular e regeneracao de tecidos.</p><p>O TB-500 e utilizado em protocolos de recuperacao de lesoes e performance atletica sob orientacao medica.</p><p><em>Produto importado do Paraguai. Consulte sempre um medico antes do uso.</em></p>",
+    "categories": [390, 374, 58],
+    "variations": [
+      { "apresentacao": "Ampola", "dosagem": "10mg", "varejo": 67, "atacado": 60 }
+    ]
+  },
+  {
+    "name": "BIONEXIS SS-31 10mg",
+    "type": "variable",
+    "short_description": "BIONEXIS SS-31 10mg Ampola importado do Paraguai. Peptideo mitocondrial para longevidade e saude celular.",
+    "description": "<p>O <strong>BIONEXIS SS-31 10mg</strong> e um peptideo mitocondrial (Elamipretide) da BIONEXIS em ampola de 10mg.</p><p>O SS-31 e estudado por seus efeitos na funcao mitocondrial, protecao celular e longevidade.</p><p><em>Produto importado do Paraguai. Consulte sempre um medico antes do uso.</em></p>",
+    "categories": [390, 374, 58],
+    "variations": [
+      { "apresentacao": "Ampola", "dosagem": "10mg", "varejo": 74, "atacado": 67 }
+    ]
+  },
+  {
+    "name": "BIONEXIS TESAMORELIN 10mg",
+    "type": "variable",
+    "short_description": "BIONEXIS TESAMORELIN 10mg Ampola importado do Paraguai. Peptideo secretagogo do GH para reducao de gordura visceral.",
+    "description": "<p>O <strong>BIONEXIS TESAMORELIN 10mg</strong> e um analogo do GHRH da BIONEXIS em ampola de 10mg, indicado para reducao de gordura visceral.</p><p>O Tesamorelin estimula a producao natural do hormonio de crescimento, promovendo reducao de gordura abdominal profunda.</p><p><em>Produto importado do Paraguai. Consulte sempre um medico antes do uso.</em></p>",
+    "categories": [390, 374, 58],
+    "variations": [
+      { "apresentacao": "Ampola", "dosagem": "10mg", "varejo": 82, "atacado": 75 }
+    ]
+  },
+  {
+    "name": "BIONEXIS MOTS-C 10mg",
+    "type": "variable",
+    "short_description": "BIONEXIS MOTS-C 10mg Ampola importado do Paraguai. Peptideo mitocondrial para metabolismo e longevidade.",
+    "description": "<p>O <strong>BIONEXIS MOTS-C 10mg</strong> e um peptideo mitocondrial da BIONEXIS em ampola de 10mg, estudado por seus efeitos no metabolismo da glicose e longevidade.</p><p><em>Produto importado do Paraguai. Consulte sempre um medico antes do uso.</em></p>",
+    "categories": [390, 374, 58],
+    "variations": [
+      { "apresentacao": "Ampola", "dosagem": "10mg", "varejo": 77, "atacado": 70 }
+    ]
+  },
+  {
+    "name": "BIONEXIS PT-141 5mg",
+    "type": "variable",
+    "short_description": "BIONEXIS PT-141 5mg Ampola importado do Paraguai. Peptideo para disfuncao sexual masculina e feminina.",
+    "description": "<p>O <strong>BIONEXIS PT-141 5mg</strong> (Bremelanotida) e um peptideo da BIONEXIS em ampola de 5mg, estudado para tratamento de disfuncao sexual.</p><p><em>Produto importado do Paraguai. Consulte sempre um medico antes do uso.</em></p>",
+    "categories": [390, 374, 58],
+    "variations": [
+      { "apresentacao": "Ampola", "dosagem": "5mg", "varejo": 77, "atacado": 70 }
+    ]
+  },
+  {
+    "name": "BIONEXIS EPITHALON 5mg",
+    "type": "variable",
+    "short_description": "BIONEXIS EPITHALON 5mg Ampola importado do Paraguai. Peptideo para longevidade e regulacao do ciclo celular.",
+    "description": "<p>O <strong>BIONEXIS EPITHALON 5mg</strong> e um tetrapeptideo da BIONEXIS em ampola de 5mg, estudado por seus efeitos na longevidade e regulacao dos telomeros.</p><p><em>Produto importado do Paraguai. Consulte sempre um medico antes do uso.</em></p>",
+    "categories": [390, 374, 58],
+    "variations": [
+      { "apresentacao": "Ampola", "dosagem": "5mg", "varejo": 67, "atacado": 60 }
+    ]
+  },
+  {
+    "name": "NEOPEPTIDES FRAG 176-191 10mg",
+    "type": "variable",
+    "short_description": "NEOPEPTIDES FRAG 176-191 10mg Ampola importado do Paraguai. Fragmento do HGH para queima de gordura.",
+    "description": "<p>O <strong>NEOPEPTIDES FRAG 176-191 10mg</strong> e o fragmento 176-191 do hormonio de crescimento humano da NEOPEPTIDES em ampola de 10mg.</p><p>O HGH Frag 176-191 e estudado por suas propriedades lipoliticas sem os efeitos do HGH completo.</p><p><em>Produto importado do Paraguai. Consulte sempre um medico antes do uso.</em></p>",
+    "categories": [391, 374, 58],
+    "variations": [
+      { "apresentacao": "Ampola", "dosagem": "10mg", "varejo": 50, "atacado": 43 }
+    ]
+  },
+  {
+    "name": "NEOPEPTIDES GLOW 70mg",
+    "type": "variable",
+    "short_description": "NEOPEPTIDES GLOW 70mg Ampola importado do Paraguai. Complexo peptideo para saude e luminosidade da pele.",
+    "description": "<p>O <strong>NEOPEPTIDES GLOW 70mg</strong> e um complexo peptideo da NEOPEPTIDES em ampola de 70mg para saude e rejuvenescimento da pele.</p><p><em>Produto importado do Paraguai. Consulte sempre um medico antes do uso.</em></p>",
+    "categories": [391, 374, 58],
+    "variations": [
+      { "apresentacao": "Ampola", "dosagem": "70mg", "varejo": 57, "atacado": 50 }
+    ]
+  },
+  {
+    "name": "NEOPEPTIDES SLUPP-332 5mg",
+    "type": "variable",
+    "short_description": "NEOPEPTIDES SLUPP-332 5mg Ampola importado do Paraguai. Agonista ERR para metabolismo e performance.",
+    "description": "<p>O <strong>NEOPEPTIDES SLUPP-332 5mg</strong> e um agonista ERR da NEOPEPTIDES em ampola de 5mg para suporte ao metabolismo energetico.</p><p><em>Produto importado do Paraguai. Consulte sempre um medico antes do uso.</em></p>",
+    "categories": [391, 374, 58],
+    "variations": [
+      { "apresentacao": "Ampola", "dosagem": "5mg", "varejo": 62, "atacado": 55 }
+    ]
+  },
+  {
+    "name": "NEOPEPTIDES TB-500 + BPC-157",
+    "type": "variable",
+    "short_description": "NEOPEPTIDES TB-500 + BPC-157 Ampola importado do Paraguai. Combo regenerativo de peptideos para recuperacao e saude articular.",
+    "description": "<p>O <strong>NEOPEPTIDES TB-500 + BPC-157</strong> e uma combinacao dos dois peptideos regenerativos mais utilizados, disponivel em ampola da NEOPEPTIDES.</p><p>O combo TB-500 + BPC-157 potencializa os efeitos regenerativos em tecidos, articulacoes e musculatura.</p><p><em>Produto importado do Paraguai. Consulte sempre um medico antes do uso.</em></p>",
+    "categories": [391, 374, 58],
+    "variations": [
+      { "apresentacao": "Ampola", "dosagem": "5mg", "varejo": 52, "atacado": 45 }
+    ]
+  },
+  {
+    "name": "MEDPLUS AOD-9604 5mg",
+    "type": "variable",
+    "short_description": "MEDPLUS AOD-9604 5mg Ampola importado do Paraguai. Fragmento do HGH para queima de gordura localizada.",
+    "description": "<p>O <strong>MEDPLUS AOD-9604 5mg</strong> e o fragmento 176-191 do HGH da MEDPLUS em ampola de 5mg para auxilio na queima de gordura.</p><p><em>Produto importado do Paraguai. Consulte sempre um medico antes do uso.</em></p>",
+    "categories": [392, 374, 58],
+    "variations": [
+      { "apresentacao": "Ampola", "dosagem": "5mg", "varejo": 42, "atacado": 35 }
+    ]
+  },
+  {
+    "name": "MEDPLUS BPC-157 5mg",
+    "type": "variable",
+    "short_description": "MEDPLUS BPC-157 5mg Ampola importado do Paraguai. Peptideo regenerativo para tecidos e articulacoes.",
+    "description": "<p>O <strong>MEDPLUS BPC-157 5mg</strong> e o Body Protection Compound da MEDPLUS em ampola de 5mg, estudado para regeneracao de tecidos e saude articular.</p><p><em>Produto importado do Paraguai. Consulte sempre um medico antes do uso.</em></p>",
+    "categories": [392, 374, 58],
+    "variations": [
+      { "apresentacao": "Ampola", "dosagem": "5mg", "varejo": 42, "atacado": 35 }
+    ]
+  },
+  {
+    "name": "MEDPLUS KPV 5mg",
+    "type": "variable",
+    "short_description": "MEDPLUS KPV 5mg Ampola importado do Paraguai. Peptideo anti-inflamatorio para saude intestinal e imunidade.",
+    "description": "<p>O <strong>MEDPLUS KPV 5mg</strong> e um tripeptideo anti-inflamatorio da MEDPLUS em ampola de 5mg, estudado por seus efeitos na saude intestinal e modulacao imunologica.</p><p><em>Produto importado do Paraguai. Consulte sempre um medico antes do uso.</em></p>",
+    "categories": [392, 374, 58],
+    "variations": [
+      { "apresentacao": "Ampola", "dosagem": "5mg", "varejo": 37, "atacado": 30 }
+    ]
+  },
+  {
+    "name": "MEDPLUS MOTS-C 5mg",
+    "type": "variable",
+    "short_description": "MEDPLUS MOTS-C 5mg Ampola importado do Paraguai. Peptideo mitocondrial para longevidade e metabolismo.",
+    "description": "<p>O <strong>MEDPLUS MOTS-C 5mg</strong> e um peptideo mitocondrial da MEDPLUS em ampola de 5mg para suporte ao metabolismo e longevidade.</p><p><em>Produto importado do Paraguai. Consulte sempre um medico antes do uso.</em></p>",
+    "categories": [392, 374, 58],
+    "variations": [
+      { "apresentacao": "Ampola", "dosagem": "5mg", "varejo": 37, "atacado": 30 }
+    ]
+  },
+  {
+    "name": "MEDPLUS SS-31 10mg",
+    "type": "variable",
+    "short_description": "MEDPLUS SS-31 10mg Ampola importado do Paraguai. Peptideo mitocondrial para saude celular e longevidade.",
+    "description": "<p>O <strong>MEDPLUS SS-31 10mg</strong> (Elamipretide) e um peptideo mitocondrial da MEDPLUS em ampola de 10mg para protecao celular e longevidade.</p><p><em>Produto importado do Paraguai. Consulte sempre um medico antes do uso.</em></p>",
+    "categories": [392, 374, 58],
+    "variations": [
+      { "apresentacao": "Ampola", "dosagem": "10mg", "varejo": 42, "atacado": 35 }
+    ]
+  },
+  {
+    "name": "MEDPLUS TB-500 5mg",
+    "type": "variable",
+    "short_description": "MEDPLUS TB-500 5mg Ampola importado do Paraguai. Peptideo para recuperacao muscular e regeneracao.",
+    "description": "<p>O <strong>MEDPLUS TB-500 5mg</strong> (Timosina Beta-4) e um peptideo regenerativo da MEDPLUS em ampola de 5mg para recuperacao de lesoes e saude articular.</p><p><em>Produto importado do Paraguai. Consulte sempre um medico antes do uso.</em></p>",
+    "categories": [392, 374, 58],
+    "variations": [
+      { "apresentacao": "Ampola", "dosagem": "5mg", "varejo": 34, "atacado": 27 }
+    ]
+  },
+  {
+    "name": "MEDPLUS SERMORELIM 5mg",
+    "type": "variable",
+    "short_description": "MEDPLUS SERMORELIM 5mg Ampola importado do Paraguai. Analogo do GHRH para estimulacao do hormonio de crescimento.",
+    "description": "<p>O <strong>MEDPLUS SERMORELIM 5mg</strong> e um analogo do GHRH da MEDPLUS em ampola de 5mg, estudado por seus efeitos na estimulacao da producao natural do hormonio de crescimento.</p><p><em>Produto importado do Paraguai. Consulte sempre um medico antes do uso.</em></p>",
+    "categories": [392, 374, 58],
+    "variations": [
+      { "apresentacao": "Ampola", "dosagem": "5mg", "varejo": 50, "atacado": 43 }
+    ]
+  }
+]

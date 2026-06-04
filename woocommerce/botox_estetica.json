@@ -1,0 +1,65 @@
+[
+  {
+    "name": "DYSPORT Toxina Botulinica 500U",
+    "type": "simple",
+    "short_description": "DYSPORT Toxina Botulinica 500 unidades original importado do Paraguai. Toxina botulinica para uso estetico e terapeutico.",
+    "description": "<p>O <strong>DYSPORT 500U</strong> e uma toxina botulinica de 500 unidades para uso estetico e terapeutico, importado do Paraguai.</p><p>Indicado para aplicacao por profissional habilitado para reducao de rugas, linhas de expressao e tratamentos terapeuticos.</p><p><em>Produto importado do Paraguai. Uso restrito a profissionais de saude habilitados.</em></p>",
+    "categories": [401, 375, 58],
+    "regular_price": 92,
+    "atacado": 85
+  },
+  {
+    "name": "HUTOX Toxina Botulinica 100IU",
+    "type": "simple",
+    "short_description": "HUTOX Toxina Botulinica 100IU original importado do Paraguai. Toxina botulinica para uso estetico.",
+    "description": "<p>O <strong>HUTOX 100IU</strong> e uma toxina botulinica de 100 unidades internacionais para uso estetico, importado do Paraguai.</p><p>Indicado para aplicacao por profissional habilitado para tratamento de rugas e linhas de expressao.</p><p><em>Produto importado do Paraguai. Uso restrito a profissionais de saude habilitados.</em></p>",
+    "categories": [402, 375, 58],
+    "regular_price": 57,
+    "atacado": 50
+  },
+  {
+    "name": "ISRADERM Toxina Botulinica 100IU",
+    "type": "simple",
+    "short_description": "ISRADERM Toxina Botulinica 100IU original importado do Paraguai. Toxina botulinica para uso estetico com excelente custo-beneficio.",
+    "description": "<p>O <strong>ISRADERM 100IU</strong> e uma toxina botulinica de 100 unidades internacionais para uso estetico, importado do Paraguai.</p><p>Indicado para aplicacao por profissional habilitado para reducao de rugas e tratamentos faciais.</p><p><em>Produto importado do Paraguai. Uso restrito a profissionais de saude habilitados.</em></p>",
+    "categories": [403, 375, 58],
+    "regular_price": 67,
+    "atacado": 60
+  },
+  {
+    "name": "ISRADERM Toxina Botulinica 150IU",
+    "type": "simple",
+    "short_description": "ISRADERM Toxina Botulinica 150IU original importado do Paraguai. Toxina botulinica 150 unidades para uso estetico.",
+    "description": "<p>O <strong>ISRADERM 150IU</strong> e uma toxina botulinica de 150 unidades internacionais para uso estetico, importado do Paraguai.</p><p>A dosagem de 150IU e ideal para tratamentos que requerem maior quantidade de toxina, com excelente custo por unidade.</p><p><em>Produto importado do Paraguai. Uso restrito a profissionais de saude habilitados.</em></p>",
+    "categories": [403, 375, 58],
+    "regular_price": 67,
+    "atacado": 60
+  },
+  {
+    "name": "STUNMEDICAL Preenchedor Acido Hialuronico Hard 55ml",
+    "type": "simple",
+    "short_description": "STUNMEDICAL Preenchedor de Acido Hialuronico Reticulado Hard Type 55ml importado do Paraguai. Para preenchimento facial profundo.",
+    "description": "<p>O <strong>STUNMEDICAL Preenchedor Acido Hialuronico Hard 55ml</strong> e um preenchedor facial de acido hialuronico reticulado tipo Hard, com 55ml, para preenchimento facial profundo e contorno facial.</p><p>Indicado para uso por profissional habilitado em procedimentos de preenchimento de sulcos profundos e volumizacao facial.</p><p><em>Produto importado do Paraguai. Uso restrito a profissionais de saude habilitados.</em></p>",
+    "categories": [404, 375, 58],
+    "regular_price": 132,
+    "atacado": 125
+  },
+  {
+    "name": "STUNMEDICAL Preenchedor Acido Hialuronico Soft 55ml",
+    "type": "simple",
+    "short_description": "STUNMEDICAL Preenchedor de Acido Hialuronico Reticulado Soft Type 55ml importado do Paraguai. Para preenchimento facial suave.",
+    "description": "<p>O <strong>STUNMEDICAL Preenchedor Acido Hialuronico Soft 55ml</strong> e um preenchedor facial de acido hialuronico reticulado tipo Soft, com 55ml, para preenchimento superficial e refinamento facial.</p><p>Indicado para uso por profissional habilitado em preenchimento de linhas finas e areas delicadas.</p><p><em>Produto importado do Paraguai. Uso restrito a profissionais de saude habilitados.</em></p>",
+    "categories": [404, 375, 58],
+    "regular_price": 132,
+    "atacado": 125
+  },
+  {
+    "name": "QHBIO LINE DERM Acido Hialuronico Hard 55ml",
+    "type": "simple",
+    "short_description": "QHBIO LINE DERM Acido Hialuronico Reticulado Hard 55ml importado do Paraguai. Preenchedor facial de alta performance.",
+    "description": "<p>O <strong>QHBIO LINE DERM Hard 55ml</strong> e um preenchedor de acido hialuronico reticulado hard de alta performance, com 55ml, para preenchimento facial profissional.</p><p>Formulacao premium da QHBIO para procedimentos esteticos que exigem durabilidade e precisao no resultado.</p><p><em>Produto importado do Paraguai. Uso restrito a profissionais de saude habilitados.</em></p>",
+    "categories": [405, 375, 58],
+    "regular_price": 162,
+    "atacado": 155
+  }
+]

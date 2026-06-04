@@ -1,0 +1,126 @@
+[
+  {
+    "name": "NEXUS Retatrutide 40mg",
+    "type": "variable",
+    "short_description": "NEXUS Retatrutide 40mg original importado do Paraguai. Medicamento injetavel para emagrecimento de alta eficacia. Comprar Retatrutide 40mg Paraguai.",
+    "description": "<p>O <strong>NEXUS Retatrutide 40mg</strong> e um medicamento injetavel para tratamento da obesidade baseado na molecula Retatrutide, agonista dos receptores GLP-1, GIP e glucagon.</p><p>A Retatrutide e considerada a molecula mais avancada para emagrecimento, com estudos mostrando reducao de ate 24% do peso corporal.</p><p><em>Produto importado do Paraguai. Consulte sempre um medico antes do uso.</em></p>",
+    "categories": [382, 373, 58],
+    "variations": [
+      { "apresentacao": "1x", "dosagem": "40mg", "varejo": 97, "atacado": 90 }
+    ]
+  },
+  {
+    "name": "ALLUVI Retatrutide 40mg",
+    "type": "variable",
+    "short_description": "ALLUVI Retatrutide 40mg original importado do Paraguai. Medicamento injetavel para emagrecimento com Retatrutide 40mg.",
+    "description": "<p>O <strong>ALLUVI Retatrutide 40mg</strong> e um medicamento injetavel a base de Retatrutide 40mg, produzido pela ALLUVI para tratamento da obesidade e sobrepeso.</p><p>A Retatrutide age em tres receptores simultaneamente (GLP-1, GIP e glucagon), proporcionando resultados superiores aos demais medicamentos para emagrecimento.</p><p><em>Produto importado do Paraguai. Consulte sempre um medico antes do uso.</em></p>",
+    "categories": [238, 373, 58],
+    "variations": [
+      { "apresentacao": "1x", "dosagem": "40mg", "varejo": 112, "atacado": 105 }
+    ]
+  },
+  {
+    "name": "SYNEDICA Retatrutide Branca 40mg",
+    "type": "variable",
+    "short_description": "SYNEDICA Retatrutide Branca 40mg original importado do Paraguai. Versao branca do Retatrutide SYNEDICA, medicamento para emagrecimento.",
+    "description": "<p>O <strong>SYNEDICA Retatrutide Branca 40mg</strong> e a versao branca do Retatrutide da SYNEDICA Labs, medicamento injetavel para tratamento da obesidade com Retatrutide 40mg.</p><p>Produzido pela SYNEDICA Labs com rigoroso controle de qualidade, disponivel na versao branca (frasco branco).</p><p><em>Produto importado do Paraguai. Consulte sempre um medico antes do uso.</em></p>",
+    "categories": [237, 373, 58],
+    "variations": [
+      { "apresentacao": "1x", "dosagem": "40mg", "varejo": 102, "atacado": 95 }
+    ]
+  },
+  {
+    "name": "SYNEDICA Retatrutide Verde 40mg",
+    "type": "variable",
+    "short_description": "SYNEDICA Retatrutide Verde 40mg original importado do Paraguai. Versao verde do Retatrutide SYNEDICA, medicamento premium para emagrecimento.",
+    "description": "<p>O <strong>SYNEDICA Retatrutide Verde 40mg</strong> e a versao premium verde do Retatrutide da SYNEDICA Labs, medicamento injetavel para tratamento da obesidade com Retatrutide 40mg.</p><p>A versao verde da SYNEDICA representa a formulacao mais recente e refinada do laboratorio para resultados otimizados no emagrecimento.</p><p><em>Produto importado do Paraguai. Consulte sempre um medico antes do uso.</em></p>",
+    "categories": [237, 373, 58],
+    "variations": [
+      { "apresentacao": "1x", "dosagem": "40mg", "varejo": 112, "atacado": 105 }
+    ]
+  },
+  {
+    "name": "USA PEPTIDES Retatrutide 40mg",
+    "type": "variable",
+    "short_description": "USA PEPTIDES Retatrutide 40mg importado do Paraguai. Retatrutide de alta pureza para emagrecimento. Comprar Retatrutide 40mg.",
+    "description": "<p>O <strong>USA PEPTIDES Retatrutide 40mg</strong> e um medicamento injetavel a base de Retatrutide 40mg, produzido pela USA PEPTIDES com padrao de pureza americano.</p><p>Ideal para tratamento da obesidade e sobrepeso sob orientacao medica, com acao em tres receptores hormonais para maxima eficacia no emagrecimento.</p><p><em>Produto importado do Paraguai. Consulte sempre um medico antes do uso.</em></p>",
+    "categories": [383, 373, 58],
+    "variations": [
+      { "apresentacao": "1x", "dosagem": "40mg", "varejo": 102, "atacado": 95 }
+    ]
+  },
+  {
+    "name": "GEN HEALTH Retatrutide",
+    "type": "variable",
+    "short_description": "GEN HEALTH Retatrutide importado do Paraguai. Disponivel em 30mg e 40mg. Medicamento injetavel para emagrecimento.",
+    "description": "<p>O <strong>GEN HEALTH Retatrutide</strong> e um medicamento injetavel a base de Retatrutide para tratamento da obesidade, disponivel nas dosagens de 30mg e 40mg.</p><p>A GEN HEALTH oferece opcoes flexiveis de dosagem para diferentes etapas do tratamento, permitindo escalada gradual conforme orientacao medica.</p><p><em>Produto importado do Paraguai. Consulte sempre um medico antes do uso.</em></p>",
+    "categories": [384, 373, 58],
+    "variations": [
+      { "apresentacao": "1x", "dosagem": "30mg", "varejo": 77,  "atacado": 70 },
+      { "apresentacao": "1x", "dosagem": "40mg", "varejo": 87,  "atacado": 80 }
+    ]
+  },
+  {
+    "name": "VELTRANE Retatrutide",
+    "type": "variable",
+    "short_description": "VELTRANE Retatrutide importado do Paraguai. Disponivel em 60mg, 90mg e 120mg. Medicamento para emagrecimento de alta eficacia.",
+    "description": "<p>O <strong>VELTRANE Retatrutide</strong> e um medicamento injetavel a base de Retatrutide para tratamento da obesidade, disponivel em tres dosagens para adaptacao ao protocolo de tratamento.</p><p>As dosagens 60mg, 90mg e 120mg permitem escalada progressiva, maximizando os resultados com minimos efeitos colaterais.</p><p><em>Produto importado do Paraguai. Consulte sempre um medico antes do uso.</em></p>",
+    "categories": [385, 373, 58],
+    "variations": [
+      { "apresentacao": "1x", "dosagem": "60mg",  "varejo": 84,  "atacado": 77 },
+      { "apresentacao": "1x", "dosagem": "90mg",  "varejo": 94,  "atacado": 87 },
+      { "apresentacao": "1x", "dosagem": "120mg", "varejo": 104, "atacado": 97 }
+    ]
+  },
+  {
+    "name": "MEDPLUS Retatrutide 60mg",
+    "type": "variable",
+    "short_description": "MEDPLUS Retatrutide 60mg importado do Paraguai. Medicamento injetavel para emagrecimento com Retatrutide 60mg de alta concentracao.",
+    "description": "<p>O <strong>MEDPLUS Retatrutide 60mg</strong> e um medicamento injetavel a base de Retatrutide 60mg para tratamento avancado da obesidade.</p><p>A dosagem de 60mg e indicada para pacientes em fase avancada do protocolo de Retatrutide, sob estrita orientacao medica.</p><p><em>Produto importado do Paraguai. Consulte sempre um medico antes do uso.</em></p>",
+    "categories": [386, 373, 58],
+    "variations": [
+      { "apresentacao": "1x", "dosagem": "60mg", "varejo": 147, "atacado": 140 }
+    ]
+  },
+  {
+    "name": "OXYGEN RETAGEN 40mg",
+    "type": "variable",
+    "short_description": "OXYGEN RETAGEN 40mg importado do Paraguai. Kit com 4 ampolas de Retatrutide 40mg para tratamento continuado da obesidade.",
+    "description": "<p>O <strong>OXYGEN RETAGEN 40mg</strong> e um medicamento injetavel a base de Retatrutide 40mg, comercializado em kit com 4 ampolas pela OXYGEN para tratamento continuado da obesidade.</p><p>O kit com 4 ampolas oferece excelente custo-beneficio para tratamentos de media duracao.</p><p><em>Produto importado do Paraguai. Consulte sempre um medico antes do uso.</em></p>",
+    "categories": [387, 373, 58],
+    "variations": [
+      { "apresentacao": "4x", "dosagem": "40mg", "varejo": 107, "atacado": 100 }
+    ]
+  },
+  {
+    "name": "THERA Retatrutide 40mg",
+    "type": "variable",
+    "short_description": "THERA Retatrutide 40mg caneta injetavel importado do Paraguai. Medicamento premium para emagrecimento em caneta injetavel.",
+    "description": "<p>O <strong>THERA Retatrutide 40mg</strong> e um medicamento injetavel a base de Retatrutide 40mg, disponivel em caneta injetavel (PEN) pela THERA — a apresentacao mais pratica e discreta para aplicacao.</p><p>A caneta injetavel facilita a autoaplicacao com precisao e conforto.</p><p><em>Produto importado do Paraguai. Consulte sempre um medico antes do uso.</em></p>",
+    "categories": [388, 373, 58],
+    "variations": [
+      { "apresentacao": "PEN", "dosagem": "40mg", "varejo": 157, "atacado": 150 }
+    ]
+  },
+  {
+    "name": "BIONEXIS Retatrutide 90mg",
+    "type": "variable",
+    "short_description": "BIONEXIS Retatrutide 90mg importado do Paraguai. Medicamento injetavel para emagrecimento com Retatrutide 90mg de alta concentracao.",
+    "description": "<p>O <strong>BIONEXIS Retatrutide 90mg</strong> e um medicamento injetavel a base de Retatrutide 90mg para tratamento avancado da obesidade, produzido pela BIONEXIS.</p><p>Indicado para pacientes em protocolo avancado com necessidade de dosagem superior, sempre sob prescricao e acompanhamento medico.</p><p><em>Produto importado do Paraguai. Consulte sempre um medico antes do uso.</em></p>",
+    "categories": [389, 373, 58],
+    "variations": [
+      { "apresentacao": "1x", "dosagem": "90mg", "varejo": 102, "atacado": 95 }
+    ]
+  },
+  {
+    "name": "MOUNJARO Tirzepatida",
+    "type": "variable",
+    "short_description": "MOUNJARO Tirzepatida caneta injetavel UK original importado do Paraguai. Medicamento Eli Lilly para emagrecimento. Disponivel em 10mg e 15mg.",
+    "description": "<p>O <strong>MOUNJARO</strong> e o medicamento original da Eli Lilly a base de Tirzepatida, disponivel em caneta injetavel (PEN). Versao UK importada do Paraguai.</p><p>O MOUNJARO e o unico agonista dual GLP-1/GIP aprovado mundialmente para tratamento da obesidade e diabetes tipo 2, com estudos clinicos comprovando reducao de ate 22% do peso corporal.</p><p><strong>Dosagens disponiveis:</strong> 10mg e 15mg.</p><p><em>Produto importado do Paraguai. Consulte sempre um medico antes do uso.</em></p>",
+    "categories": [234, 58],
+    "variations": [
+      { "apresentacao": "PEN", "dosagem": "10mg", "varejo": 262, "atacado": 255 },
+      { "apresentacao": "PEN", "dosagem": "15mg", "varejo": 352, "atacado": 345 }
+    ]
+  }
+]

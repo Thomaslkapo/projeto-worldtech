@@ -1,0 +1,71 @@
+[
+  {
+    "name": "TIRZEC Tirzepatida 15mg",
+    "short_description": "TIRZEC Tirzepatida 15mg original importado do Paraguai. Medicamento para emagrecimento com agonista dual GLP-1/GIP de alta eficacia. Disponivel em vial unitario, kit 4 vials e caneta injetavel.",
+    "description": "<p>O <strong>TIRZEC Tirzepatida 15mg</strong> e um medicamento injetavel para tratamento da obesidade e sobrepeso, baseado na molecula Tirzepatida, agonista dual dos receptores GLP-1 e GIP.</p><p>A Tirzepatida age promovendo saciedade, reduzindo o apetite e melhorando o controle glicemico, sendo indicada sob orientacao medica para adultos com IMC elevado.</p><p><strong>Apresentacoes disponiveis:</strong> 1 vial (dose individual), kit com 4 vials e caneta injetavel (PEN).</p><p><em>Produto importado do Paraguai. Consulte sempre um medico antes do uso.</em></p>",
+    "categories": [376, 372, 58],
+    "variations": [
+      { "apresentacao": "1x",  "varejo": 89,  "atacado": 82  },
+      { "apresentacao": "4x",  "varejo": 99,  "atacado": 92  },
+      { "apresentacao": "PEN", "varejo": 127, "atacado": 120 }
+    ]
+  },
+  {
+    "name": "LIPOLESS Tirzepatida 15mg",
+    "short_description": "LIPOLESS Tirzepatida 15mg original importado do Paraguai. Medicamento injetavel para emagrecimento com Tirzepatida 15mg. Disponivel em multidose (MD) e kit 4 vials.",
+    "description": "<p>O <strong>LIPOLESS Tirzepatida 15mg</strong> e um medicamento injetavel a base de Tirzepatida, substancia que atua nos receptores GLP-1 e GIP promovendo perda de peso significativa e sustentada.</p><p>O frasco multidose (MD) oferece praticidade e economia para tratamentos continuados. O kit com 4 vials e ideal para quem busca custo-beneficio.</p><p><strong>Apresentacoes disponiveis:</strong> Multidose (MD) e kit com 4 vials.</p><p><em>Produto importado do Paraguai. Consulte sempre um medico antes do uso.</em></p>",
+    "categories": [235, 372, 58],
+    "variations": [
+      { "apresentacao": "MD", "varejo": 87, "atacado": 80 },
+      { "apresentacao": "4x", "varejo": 88, "atacado": 81 }
+    ]
+  },
+  {
+    "name": "LIPOLAND Tirzepatida 15mg",
+    "short_description": "LIPOLAND Tirzepatida 15mg original importado do Paraguai. Medicamento injetavel para emagrecimento com Tirzepatida 15mg. Disponivel em dose unitaria e kit 4 vials.",
+    "description": "<p>O <strong>LIPOLAND Tirzepatida 15mg</strong> e um medicamento para tratamento da obesidade baseado na molecula Tirzepatida, com acao nos receptores GLP-1 e GIP.</p><p>Produzido pela Landerlan, laboratorio reconhecido no mercado paraguaio pela qualidade e rigor na fabricacao de compostos injetaveis.</p><p><strong>Apresentacoes disponiveis:</strong> Dose unitaria (1x) e kit com 4 vials (4x).</p><p><em>Produto importado do Paraguai. Consulte sempre um medico antes do uso.</em></p>",
+    "categories": [377, 372, 58],
+    "variations": [
+      { "apresentacao": "1x", "varejo": 96, "atacado": 89 },
+      { "apresentacao": "4x", "varejo": 98, "atacado": 91 }
+    ]
+  },
+  {
+    "name": "T.G Tirzepatida 15mg",
+    "short_description": "T.G Tirzepatida 15mg original importado do Paraguai. Medicamento injetavel para emagrecimento com Tirzepatida 15mg em dose unitaria.",
+    "description": "<p>O <strong>T.G Tirzepatida 15mg</strong> e um medicamento injetavel para tratamento da obesidade baseado na molecula Tirzepatida, com acao dual nos receptores GLP-1 e GIP.</p><p>Formulacao de alta pureza com dose de 15mg por vial, indicado sob prescricao medica para adultos com sobrepeso ou obesidade.</p><p><em>Produto importado do Paraguai. Consulte sempre um medico antes do uso.</em></p>",
+    "categories": [236, 372, 58],
+    "variations": [
+      { "apresentacao": "1x", "varejo": 97, "atacado": 90 }
+    ]
+  },
+  {
+    "name": "GLUCONEX Tirzepatida 15mg",
+    "short_description": "GLUCONEX Tirzepatida 15mg original importado do Paraguai. Kit com 4 vials de Tirzepatida 15mg para tratamento da obesidade com alta eficacia.",
+    "description": "<p>O <strong>GLUCONEX Tirzepatida 15mg</strong> e um medicamento injetavel a base de Tirzepatida 15mg, comercializado em kit com 4 vials para tratamento continuado da obesidade e sobrepeso.</p><p>A Tirzepatida e o principio ativo mais moderno para emagrecimento, com estudos mostrando reducao media de 20% do peso corporal em tratamentos prolongados.</p><p><em>Produto importado do Paraguai. Consulte sempre um medico antes do uso.</em></p>",
+    "categories": [378, 372, 58],
+    "variations": [
+      { "apresentacao": "4x", "varejo": 97, "atacado": 90 }
+    ]
+  },
+  {
+    "name": "TIRZEDRAL Tirzepatida 15mg",
+    "short_description": "TIRZEDRAL Tirzepatida 15mg original importado do Paraguai. Medicamento injetavel para emagrecimento disponivel em dose unica e kit 4 vials.",
+    "description": "<p>O <strong>TIRZEDRAL Tirzepatida 15mg</strong> e um medicamento injetavel para tratamento da obesidade, com a molecula Tirzepatida como principio ativo.</p><p>Disponivel em ampola de dose unica para iniciar o tratamento ou kit com 4 ampolas para tratamento continuo com melhor custo-beneficio.</p><p><em>Produto importado do Paraguai. Consulte sempre um medico antes do uso.</em></p>",
+    "categories": [379, 372, 58],
+    "variations": [
+      { "apresentacao": "1x", "varejo": 96, "atacado": 89 },
+      { "apresentacao": "4x", "varejo": 94, "atacado": 87 }
+    ]
+  },
+  {
+    "name": "SLIMEX Tirzepatida 15mg",
+    "short_description": "SLIMEX Tirzepatida 15mg original importado do Paraguai. Medicamento para emagrecimento com Tirzepatida 15mg. Disponivel em multidose e kit 4 vials.",
+    "description": "<p>O <strong>SLIMEX Tirzepatida 15mg</strong> e um medicamento injetavel a base de Tirzepatida 15mg para tratamento da obesidade e controle de peso.</p><p>Disponivel em frasco multidose (MD) para maior economia em tratamentos longos e kit com 4 vials para uso progressivo.</p><p><em>Produto importado do Paraguai. Consulte sempre um medico antes do uso.</em></p>",
+    "categories": [380, 372, 58],
+    "variations": [
+      { "apresentacao": "MD", "varejo": 87, "atacado": 80 },
+      { "apresentacao": "4x", "varejo": 90, "atacado": 83 }
+    ]
+  }
+]
