@@ -1,21 +1,20 @@
 <?php
 /**
- * WorldTech - Finalizacao de compra via WhatsApp (versao robusta p/ tema Shoptimizer)
+ * WorldTech - Finalizacao de compra via WhatsApp (cobre carrinho + side cart Shoptimizer)
  *
- * Substitui o botao "Finalizar compra" do carrinho por um botao que abre o
- * WhatsApp da loja com todos os itens do carrinho na mensagem.
+ * - Troca o botao "Finalizar compra" pelo botao do WhatsApp na PAGINA do carrinho
+ * - Troca tambem no MINI-CART / side cart (o "Your Cart" lateral do Shoptimizer)
+ * - Rede de seguranca: bloqueia /checkout e manda pro carrinho (loja nao vende online)
  *
- * COMO INSTALAR (Code Snippets): cole o codigo abaixo (sem a linha <?php),
- * marque "Run snippet everywhere", Salve e Ative. Depois LIMPE O CACHE.
+ * Instalar no Code Snippets (sem a linha <?php), "Run everywhere", Salvar/Ativar, limpar cache.
  */
 
-// 1) Adiciona o botao do WhatsApp (prioridade 5 = antes do botao do tema)
-add_action( 'woocommerce_proceed_to_checkout', 'worldtech_whatsapp_checkout_button', 5 );
-function worldtech_whatsapp_checkout_button() {
+// Gera o link do WhatsApp com o conteudo atual do carrinho
+function worldtech_whatsapp_link() {
+    if ( ! function_exists( 'WC' ) || ! WC()->cart ) { return '#'; }
 
     $numero = '595975682071'; // WhatsApp da loja (so digitos, com DDI)
-
-    $msg = "Olá! Quero finalizar meu pedido:\n\n";
+    $msg    = "Olá! Quero finalizar meu pedido:\n\n";
 
     foreach ( WC()->cart->get_cart() as $item ) {
         $nome = get_the_title( $item['product_id'] );
@@ -38,36 +37,53 @@ function worldtech_whatsapp_checkout_button() {
         }
 
         $subtotal = wp_strip_all_tags( WC()->cart->get_product_subtotal( $item['data'], $qtd ) );
-        $msg .= "• {$qtd}x {$nome}{$extra}: {$subtotal}\n";
+        $msg     .= "• {$qtd}x {$nome}{$extra}: {$subtotal}\n";
     }
 
     $total = wp_strip_all_tags( WC()->cart->get_cart_total() );
     $msg  .= "\n*Total: {$total}*";
 
-    $link = 'https://wa.me/' . $numero . '?text=' . rawurlencode( $msg );
-
-    echo '<a href="' . esc_url( $link ) . '" target="_blank" rel="noopener nofollow" '
-       . 'class="checkout-button button alt wc-forward worldtech-wa-btn">'
-       . 'Finalizar pedido pelo WhatsApp</a>';
+    return 'https://wa.me/' . $numero . '?text=' . rawurlencode( $msg );
 }
 
-// 2) Tenta remover o botao padrao pelo hook (caso o tema use o padrao)
+// Botao na PAGINA do carrinho
+add_action( 'woocommerce_proceed_to_checkout', function () {
+    echo '<a href="' . esc_url( worldtech_whatsapp_link() ) . '" target="_blank" rel="noopener nofollow" '
+       . 'class="checkout-button button alt wc-forward worldtech-wa-btn">Finalizar pedido pelo WhatsApp</a>';
+}, 5 );
+
+// Botao no MINI-CART / side cart
+add_action( 'woocommerce_widget_shopping_cart_buttons', function () {
+    echo '<a href="' . esc_url( worldtech_whatsapp_link() ) . '" target="_blank" rel="noopener nofollow" '
+       . 'class="button checkout wc-forward worldtech-wa-btn">Finalizar pelo WhatsApp</a>';
+}, 30 );
+
+// Remove os botoes padrao de checkout (pagina + mini-cart)
 add_action( 'wp', function () {
     remove_action( 'woocommerce_proceed_to_checkout', 'woocommerce_button_proceed_to_checkout', 20 );
+    remove_action( 'woocommerce_widget_shopping_cart_buttons', 'woocommerce_widget_shopping_cart_proceed_to_checkout', 20 );
 } );
 
-// 3) Esconde via CSS qualquer botao de checkout que NAO seja o nosso (à prova de tema)
+// Esconde via CSS qualquer botao de checkout que NAO seja o nosso (carrinho + side cart)
 add_action( 'wp_head', function () {
-    if ( function_exists( 'is_cart' ) && is_cart() ) {
-        echo '<style>
-            .wc-proceed-to-checkout a.checkout-button:not(.worldtech-wa-btn),
-            .wc-proceed-to-checkout a.cgkit-proceed-to-checkout:not(.worldtech-wa-btn),
-            a.checkout-button.alt:not(.worldtech-wa-btn) { display:none !important; }
-            a.worldtech-wa-btn {
-                display:block !important; text-align:center !important;
-                background:#25D366 !important; border-color:#25D366 !important;
-                color:#ffffff !important;
-            }
-        </style>';
+    echo '<style>
+        .wc-proceed-to-checkout a.checkout-button:not(.worldtech-wa-btn),
+        .woocommerce-mini-cart__buttons a.checkout:not(.worldtech-wa-btn),
+        .widget_shopping_cart a.checkout:not(.worldtech-wa-btn),
+        a.checkout-button.alt:not(.worldtech-wa-btn) { display:none !important; }
+        a.worldtech-wa-btn {
+            display:block !important; text-align:center !important;
+            background:#25D366 !important; border-color:#25D366 !important; color:#ffffff !important;
+        }
+    </style>';
+} );
+
+// Rede de seguranca: se cair no /checkout por qualquer caminho, volta pro carrinho
+add_action( 'template_redirect', function () {
+    if ( function_exists( 'is_checkout' ) && is_checkout()
+        && ! is_wc_endpoint_url( 'order-received' )
+        && ! is_wc_endpoint_url( 'order-pay' ) ) {
+        wp_safe_redirect( wc_get_cart_url() );
+        exit;
     }
 } );
