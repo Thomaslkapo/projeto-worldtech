@@ -14,7 +14,7 @@
       "name": "Mensagens Fornecedores",
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
-      "position": [220, 300],
+      "position": [200, 300],
       "parameters": {
         "assignments": {
           "assignments": [
@@ -22,7 +22,7 @@
               "id": "m1",
               "name": "mensagem",
               "type": "string",
-              "value": "*MESTRE LISTA ATUALIZADA*\n\n*IPHONE 16-128GB*\nBLACK - 675$\nTEAL 675$\nWHITE 675$\n\n*IPHONE 17-256GB*\nBLUE 765$\nLAVANDER 770$\nSAGE 765$\n\n*IPHONE 17E-256GB*\nBLACK 565$\nWHITE 565$\n\n*17-PRO 256GB*\nORANGE 1.150$\nBLUE 1.150$\nSILVER 1.180$"
+              "value": "*ISPACE*\niPhone 16 128gb\nPreto 700 Branco 725 Rosa 725 Azul 680 Verde 680\niPhone 17 256gb LLA\nPreto 772 Branco 772 Lilas 768 Azul 768 Verde 768\niPhone 17E 256gb LLA\nPreto 565 Branco 570\niPhone 17 Air 256gb LLA\nPreto 920 Branco 925 Dourado 920\niPhone 17 pro 256gb LLA\nLaranja 1145 Azul 1150 Silver 1170\niPhone 17 pro 512gb LLA\nSilver 1430 Azul 1420\niPhone 17 pro max 256gb LLA\nLaranja 1210 Azul 1225 Silver 1270\niPhone 17 pro max 512gb LLA\nLaranja 1490 Silver 1570 Azul 1525\niPhone 17 pro max 1TB LLA\nLaranja 1700 Silver 1740 Azul 1725\n\n*MESTRE*\nIPHONE 16 128GB\nBLACK 675 TEAL 675 WHITE 675\nIPHONE 17 256GB\nBLUE 765 LAVANDER 770 SAGE 765\nIPHONE 17E 256GB\nBLACK 565 WHITE 565\n17 PRO 256GB\nORANGE 1150 BLUE 1150 SILVER 1180\n17 PRO MAX 256GB\nORANGE 1210 SILVER 1265\n17 PRO MAX 512GB\nORANGE 1510 BLUE 1535\n17 PRO MAX 1TB\nORANGE 1740 SILVER 1755\n17 PRO MAX 2TB\nORANGE 2040 BLUE 2060 SILVER 2070\n\n*SWAP STORE*\n17 256GB BLACK 765 BLUE 765 LAVANDA 765\n17 PRO 256GB COSMIC ORANGE 1140\n17 PRO MAX 256GB COSMIC ORANGE 1205 DEEP BLUE 1215\n17 PRO MAX 512GB COSMIC ORANGE 1500 DEEP BLUE 1545 SILVER 1550"
             }
           ]
         },
@@ -34,9 +34,9 @@
       "name": "Montar Requisicao Gemini",
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
-      "position": [440, 300],
+      "position": [400, 300],
       "parameters": {
-        "jsCode": "const mensagem = $json.mensagem || '';\nconst prompt = [\n'Voce e um parser de listas de precos de fornecedores (iPhones e farmacos). Detecte o FORNECEDOR pelos cabecalhos no texto (ex: ISPACE, MESTRE, BEST SHOP=BEST, SWAP STORE=SWAP, MONARCA, BYMAC, STAR).',\n'Retorne SOMENTE um array JSON valido. Cada item tem:',\n'- modeloSite: para iPhone use exatamente \\\"iPhone 16\\\",\\\"iPhone 17\\\",\\\"iPhone 17E\\\",\\\"iPhone 17 Pro\\\",\\\"iPhone 17 Pro Max\\\",\\\"iPhone 17 Air\\\". Para farmaco use MARCA + tipo + dosagem, ex \\\"TIRZEC Tirzepatida 15mg\\\", \\\"MOUNJARO Mounjaro 10mg\\\", \\\"DYSPORT Dysport 500U\\\".',\n'- atributos: para iPhone { \\\"Armazenamento\\\": \\\"128GB|256GB|512GB|1TB|2TB\\\", \\\"Cor\\\": <em ingles> }. Para farmaco { \\\"Apresentacao\\\": \\\"1x|4x|MD|PEN\\\", \\\"Dosagem\\\": \\\"15mg\\\" }.',\n'- preco: numero sem simbolo e sem ponto de milhar (1.150 vira 1150).',\n'- fornecedor: nome detectado.',\n'Cores iPhone: LARANJA/ORANGE/COSMIC ORANGE em Pro ou Pro Max = Cosmic Orange; AZUL/BLUE em 17 Pro e 17 Pro Max = Deep Blue; AZUL/BLUE em iPhone 16 ou 17 comum = Blue; LILAS/LAVANDER = Lavender; BRANCO = White; PRETO/BLACK = Black; SILVER/PRATA = Silver; DOURADO = Gold; VERDE = Green; SAGE = Sage; TEAL = Teal; SKY BLUE = Sky Blue.',\n'Apresentacao farmaco: monodose / 1 vial / MD / 1x = 1x; 4 vial / 4x = 4x; caneta / PEN / UK = PEN.',\n'Ignore itens sem preco e ignore acessorios (iPad, Macbook, agua bacteriostatica). Apenas iPhones e farmacos injetaveis/peptideos.',\n'',\n'Mensagem:',\nmensagem\n].join('\\n');\n\nconst body = {\n  contents: [{ parts: [{ text: prompt }] }],\n  generationConfig: { responseMimeType: 'application/json' }\n};\n\nreturn [{ json: { geminiBody: JSON.stringify(body) }, pairedItem: { item: 0 } }];"
+        "jsCode": "const mensagem = $json.mensagem || '';\nconst prompt = [\n'Voce e um parser de listas de precos de fornecedores (iPhones e farmacos). Detecte o FORNECEDOR pelos cabecalhos no texto (ex: ISPACE, MESTRE, BEST SHOP=BEST, SWAP STORE=SWAP, MONARCA, BYMAC, STAR).',\n'Retorne SOMENTE um array JSON valido. Cada item tem:',\n'- modeloSite: para iPhone use exatamente \\\"iPhone 16\\\",\\\"iPhone 17\\\",\\\"iPhone 17E\\\",\\\"iPhone 17 Pro\\\",\\\"iPhone 17 Pro Max\\\",\\\"iPhone 17 Air\\\". Para farmaco use MARCA + tipo + dosagem, ex \\\"TIRZEC Tirzepatida 15mg\\\", \\\"MOUNJARO Mounjaro 10mg\\\", \\\"DYSPORT Dysport 500U\\\".',\n'- atributos: para iPhone { \\\"Armazenamento\\\": \\\"128GB|256GB|512GB|1TB|2TB\\\", \\\"Cor\\\": <em ingles> }. Para farmaco { \\\"Apresentacao\\\": \\\"1x|4x|MD|PEN\\\", \\\"Dosagem\\\": \\\"15mg\\\" }.',\n'- preco: numero sem simbolo e sem ponto de milhar (1.150 vira 1150).',\n'- fornecedor: nome detectado.',\n'Cores iPhone: LARANJA/ORANGE/COSMIC ORANGE em Pro ou Pro Max = Cosmic Orange; AZUL/BLUE em 17 Pro e 17 Pro Max = Deep Blue; AZUL/BLUE em iPhone 16 ou 17 comum = Blue; LILAS/LAVANDER/LAVANDA = Lavender; BRANCO = White; PRETO/BLACK = Black; SILVER/PRATA = Silver; DOURADO = Gold; VERDE = Green; SAGE = Sage; TEAL = Teal; ROSA = Pink; SKY BLUE = Sky Blue.',\n'Apresentacao farmaco: monodose / 1 vial / MD / 1x = 1x; 4 vial / 4x = 4x; caneta / PEN / UK = PEN.',\n'Ignore itens sem preco e ignore acessorios (iPad, Macbook, agua bacteriostatica). Apenas iPhones e farmacos injetaveis/peptideos.',\n'',\n'Mensagem:',\nmensagem\n].join('\\n');\n\nconst body = {\n  contents: [{ parts: [{ text: prompt }] }],\n  generationConfig: { responseMimeType: 'application/json' }\n};\n\nreturn [{ json: { geminiBody: JSON.stringify(body) }, pairedItem: { item: 0 } }];"
       }
     },
     {
@@ -44,7 +44,7 @@
       "name": "Gemini Parser",
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.4,
-      "position": [660, 300],
+      "position": [600, 300],
       "parameters": {
         "method": "POST",
         "url": "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-lite:generateContent",
@@ -70,7 +70,7 @@
       "name": "Extrair JSON Gemini",
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
-      "position": [880, 300],
+      "position": [800, 300],
       "parameters": {
         "jsCode": "const resp = $json;\nlet text = '';\ntry { text = resp.candidates[0].content.parts[0].text || ''; } catch(e) { throw new Error('Resposta do Gemini sem texto: ' + JSON.stringify(resp).slice(0,300)); }\ntext = text.replace(/```json/gi,'').replace(/```/g,'').trim();\nlet arr;\ntry { arr = JSON.parse(text); } catch(e) { throw new Error('Gemini nao retornou JSON valido: ' + text.slice(0,300)); }\nif (!Array.isArray(arr)) arr = arr.lista_precos || [];\nif (arr.length === 0) throw new Error('Gemini retornou lista vazia.');\nreturn arr.map(item => ({ json: item, pairedItem: { item: 0 } }));"
       }
@@ -80,9 +80,19 @@
       "name": "Comparar e Calcular",
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
-      "position": [1100, 300],
+      "position": [1000, 300],
       "parameters": {
         "jsCode": "const items = $input.all().map(i => i.json);\n\nconst grupos = {};\nfor (const item of items) {\n  const chave = item.modeloSite + '|' + JSON.stringify(item.atributos || {});\n  if (!grupos[chave]) {\n    grupos[chave] = { modeloSite: item.modeloSite, atributos: item.atributos || {}, precos: [] };\n  }\n  if (item.preco > 0) grupos[chave].precos.push(Number(item.preco));\n}\n\nconst resultados = [];\nfor (const g of Object.values(grupos)) {\n  if (g.precos.length === 0) continue;\n  const menor = Math.min(...g.precos);\n  const maior = Math.max(...g.precos);\n  const variacao = maior - menor;\n  let preco, preco_atacado;\n  if (g.modeloSite.toLowerCase().includes('iphone')) {\n    preco = Math.min(maior + 50, menor + 65);\n    if (variacao <= 35)      preco_atacado = maior + 15;\n    else if (variacao <= 50) preco_atacado = maior + 10;\n    else                     preco_atacado = maior + 5;\n  } else {\n    preco = maior + 12;\n    preco_atacado = maior + 5;\n  }\n  resultados.push({ json: { modeloSite: g.modeloSite, atributos: g.atributos, preco, preco_atacado, preco_compra: menor, preco_maior: maior, variacao, num_fornecedores: g.precos.length }, pairedItem: { item: 0 } });\n}\nreturn resultados;"
+      }
+    },
+    {
+      "id": "t_group",
+      "name": "Agrupar por Produto",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [1200, 200],
+      "parameters": {
+        "jsCode": "const items = $input.all().map(i => i.json);\nconst grupos = {};\nfor (const it of items) {\n  if (!grupos[it.modeloSite]) grupos[it.modeloSite] = { modeloSite: it.modeloSite, variacoes: [] };\n  grupos[it.modeloSite].variacoes.push({ atributos: it.atributos, preco: it.preco, preco_atacado: it.preco_atacado });\n}\nreturn Object.values(grupos).map(g => ({ json: g, pairedItem: { item: 0 } }));"
       }
     },
     {
@@ -90,7 +100,7 @@
       "name": "Loop Produtos",
       "type": "n8n-nodes-base.splitInBatches",
       "typeVersion": 2,
-      "position": [1320, 300],
+      "position": [1400, 200],
       "parameters": { "batchSize": 1, "options": {} }
     },
     {
@@ -98,7 +108,7 @@
       "name": "Buscar Produto",
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.4,
-      "position": [1540, 300],
+      "position": [1600, 200],
       "parameters": {
         "url": "=https://worldtechparaguai.com/wp-json/wc/v3/products?per_page=100&search={{$json.modeloSite}}",
         "authentication": "genericCredentialType",
@@ -114,7 +124,7 @@
       "name": "Filtrar Produto",
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
-      "position": [1760, 300],
+      "position": [1800, 200],
       "parameters": {
         "jsCode": "const lista = $input.all().map(i => i.json);\nconst src = $('Loop Produtos').item.json;\nfunction norm(s){ return (s||'').toLowerCase().replace(/\\s+/g,' ').trim(); }\nconst n0=norm(src.modeloSite);\nconst wPM=n0.includes('pro max');\nconst wP=!wPM&&n0.includes('pro');\nconst wAir=n0.includes('air');\nconst wE=/\\d+e\\b/.test(n0);\nconst wPL=n0.includes('plus');\nlet best=null,pts=-1;\nfor(const item of lista){\n  const n1=norm(item.name||'');\n  const hPM=n1.includes('pro max');\n  const hP=!hPM&&n1.includes('pro');\n  const hAir=n1.includes('air');\n  const hE=/\\d+e\\b/.test(n1);\n  const hPL=n1.includes('plus');\n  if(hPM&&!wPM)continue;\n  if(hP&&!wP)continue;\n  if(hAir&&!wAir)continue;\n  if(hPL&&!wPL)continue;\n  if(wPM&&!hPM)continue;\n  if(wP&&!hP)continue;\n  if(wAir&&!hAir)continue;\n  if(wE&&!hE)continue;\n  if(!wE&&hE)continue;\n  let p=0;\n  for(const w of n0.split(' '))if(n1.includes(w))p++;\n  if(p>pts){pts=p;best=item;}\n}\nif(!best)return[{json:{skip:true,motivo:'produto_nao_encontrado',modeloSite:src.modeloSite},pairedItem:{item:0}}];\nreturn[{json:{...src,pai_id:best.id,pai_nome:best.name},pairedItem:{item:0}}];"
       }
@@ -124,7 +134,7 @@
       "name": "Achou Produto?",
       "type": "n8n-nodes-base.if",
       "typeVersion": 2.3,
-      "position": [1980, 300],
+      "position": [2000, 200],
       "parameters": {
         "conditions": {
           "combinator": "and",
@@ -141,7 +151,7 @@
       "name": "Buscar Variacoes",
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.4,
-      "position": [2200, 300],
+      "position": [2200, 200],
       "parameters": {
         "url": "=https://worldtechparaguai.com/wp-json/wc/v3/products/{{$json.pai_id}}/variations?per_page=100",
         "authentication": "genericCredentialType",
@@ -154,53 +164,42 @@
     },
     {
       "id": "t9",
-      "name": "Filtrar Variacao",
+      "name": "Processar Variacoes",
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
-      "position": [2420, 300],
+      "position": [2400, 200],
       "parameters": {
-        "jsCode": "const vars=$input.all().map(i=>i.json);\nconst src=$('Filtrar Produto').item.json;\nconst atrs=src.atributos||{};\nfunction nv(s){return (s||'').toString().toUpperCase().replace(/\\s+/g,'');}\nconst GRUPOS=[['1X','MD','1VIAL','MONODOSE'],['4X','4VIAL'],['PEN','CANETA']];\nfunction equiv(a,b){a=nv(a);b=nv(b);if(a===b)return true;for(const g of GRUPOS){if(g.includes(a)&&g.includes(b))return true;}return false;}\nfunction match(v,attrs){\n  for(const k of Object.keys(attrs)){\n    const want=attrs[k];\n    const ok=(v.attributes||[]).some(a=> equiv(a.option,want));\n    if(!ok)return false;\n  }\n  return true;\n}\nconst found=vars.filter(v=>match(v,atrs));\nif(found.length===0)return[{json:{skip:true,motivo:'variacao_nao_encontrada',atributos:atrs,pai_nome:src.pai_nome},pairedItem:{item:0}}];\nreturn found.map(v=>({json:{...src,var_id:v.id,preco_atual:v.regular_price},pairedItem:{item:0}}));"
-      }
-    },
-    {
-      "id": "t10",
-      "name": "Achou Variacao?",
-      "type": "n8n-nodes-base.if",
-      "typeVersion": 2.3,
-      "position": [2640, 300],
-      "parameters": {
-        "conditions": {
-          "combinator": "and",
-          "conditions": [
-            { "leftValue": "={{$json.skip}}", "rightValue": true, "operator": { "type": "boolean", "operation": "notEquals" } }
-          ],
-          "options": {}
-        },
-        "options": {}
+        "jsCode": "const vars = $input.all().map(i => i.json);\nconst src = $('Filtrar Produto').item.json;\nconst disponiveis = src.variacoes || [];\nfunction nv(s){ return (s||'').toString().toUpperCase().replace(/\\s+/g,''); }\nconst GRUPOS=[['1X','MD','1VIAL','MONODOSE'],['4X','4VIAL'],['PEN','CANETA']];\nfunction equiv(a,b){ a=nv(a); b=nv(b); if(a===b)return true; for(const g of GRUPOS){ if(g.includes(a)&&g.includes(b))return true; } return false; }\nfunction matchAttrs(v, attrs){\n  for(const k of Object.keys(attrs)){\n    const want=attrs[k];\n    const ok=(v.attributes||[]).some(a=> equiv(a.option, want));\n    if(!ok) return false;\n  }\n  return true;\n}\nconst out=[];\nfor(const v of vars){\n  const disp = disponiveis.find(d => matchAttrs(v, d.atributos||{}));\n  if(disp){\n    out.push({ json: { pai_id: src.pai_id, pai_nome: src.pai_nome, var_id: v.id, acao: 'instock', regular_price: String(disp.preco), atacado: String(disp.preco_atacado) }, pairedItem: { item: 0 } });\n  } else {\n    out.push({ json: { pai_id: src.pai_id, pai_nome: src.pai_nome, var_id: v.id, acao: 'outofstock', regular_price: String(v.regular_price||0), atacado: '' }, pairedItem: { item: 0 } });\n  }\n}\nreturn out;"
       }
     },
     {
       "id": "t11",
-      "name": "Atualizar Preco",
+      "name": "Atualizar Variacao",
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.4,
-      "position": [2860, 300],
+      "position": [2600, 200],
       "parameters": {
         "method": "PUT",
         "url": "=https://worldtechparaguai.com/wp-json/wc/v3/products/{{$json.pai_id}}/variations/{{$json.var_id}}",
         "authentication": "genericCredentialType",
         "genericAuthType": "httpBasicAuth",
         "sendBody": true,
-        "bodyParameters": {
-          "parameters": [
-            { "name": "regular_price", "value": "={{$json.preco.toString()}}" },
-            { "name": "stock_status",  "value": "instock" }
-          ]
-        },
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify({ regular_price: $json.regular_price, stock_status: $json.acao, meta_data: [{ key: '_preco_atacado', value: $json.atacado }] }) }}",
         "options": {}
       },
       "credentials": {
         "httpBasicAuth": { "id": "vfz7lxQ7llBTKg1A", "name": "WooCommerce WorldTech v2" }
+      }
+    },
+    {
+      "id": "t_lista",
+      "name": "Gerar Lista Clientes",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [1200, 440],
+      "parameters": {
+        "jsCode": "const items = $input.all().map(i => i.json);\nconst EMOJI = { 'Black':'⚫','White':'⚪','Blue':'🔵','Deep Blue':'🔵','Lavender':'🟣','Sage':'🟢','Cosmic Orange':'🟠','Silver':'⚪','Gold':'🟡','Green':'🟢','Pink':'🩷','Teal':'🪵','Sky Blue':'🪵','Purple':'🟣','Red':'🔴','Yellow':'🟡' };\nconst ORDEM = ['128GB','256GB','512GB','1TB','2TB'];\nconst porModelo = {};\nfor (const it of items) {\n  if (!porModelo[it.modeloSite]) porModelo[it.modeloSite] = [];\n  porModelo[it.modeloSite].push(it);\n}\nconst hoje = new Date().toLocaleDateString('pt-BR');\nlet txt = '📱 *WORLDTECH PARAGUAY*\\n📅 ' + hoje + '\\n💵 Precos em USD - VAREJO\\n';\nconst nomes = Object.keys(porModelo).sort();\nfor (const nome of nomes) {\n  const lista = porModelo[nome];\n  const isIphone = nome.toLowerCase().includes('iphone');\n  txt += '\\n*' + nome + '*\\n';\n  if (isIphone) {\n    lista.sort((a,b)=>{ const aa=ORDEM.indexOf((a.atributos.Armazenamento||'')); const bb=ORDEM.indexOf((b.atributos.Armazenamento||'')); return aa-bb; });\n    for (const it of lista) {\n      const cor = it.atributos.Cor || '';\n      const arm = it.atributos.Armazenamento || '';\n      const em = EMOJI[cor] || '▪️';\n      txt += em + ' ' + arm + ' ' + cor + ': $' + it.preco + '\\n';\n    }\n  } else {\n    for (const it of lista) {\n      const apr = it.atributos.Apresentacao || it.atributos['Apresentação'] || '';\n      txt += '💉 ' + (apr ? apr + ' ' : '') + ': $' + it.preco + '\\n';\n    }\n  }\n}\ntxt += '\\n_Precos de atacado disponiveis, consulte._';\nreturn [{ json: { lista_clientes: txt }, pairedItem: { item: 0 } }];"
       }
     }
   ],
@@ -210,7 +209,11 @@
     "Montar Requisicao Gemini": { "main": [[{ "node": "Gemini Parser", "type": "main", "index": 0 }]] },
     "Gemini Parser":          { "main": [[{ "node": "Extrair JSON Gemini", "type": "main", "index": 0 }]] },
     "Extrair JSON Gemini":    { "main": [[{ "node": "Comparar e Calcular", "type": "main", "index": 0 }]] },
-    "Comparar e Calcular":    { "main": [[{ "node": "Loop Produtos", "type": "main", "index": 0 }]] },
+    "Comparar e Calcular":    { "main": [[
+      { "node": "Agrupar por Produto", "type": "main", "index": 0 },
+      { "node": "Gerar Lista Clientes", "type": "main", "index": 0 }
+    ]]},
+    "Agrupar por Produto":    { "main": [[{ "node": "Loop Produtos", "type": "main", "index": 0 }]] },
     "Loop Produtos":          { "main": [[{ "node": "Buscar Produto", "type": "main", "index": 0 }]] },
     "Buscar Produto":         { "main": [[{ "node": "Filtrar Produto", "type": "main", "index": 0 }]] },
     "Filtrar Produto":        { "main": [[{ "node": "Achou Produto?", "type": "main", "index": 0 }]] },
@@ -218,13 +221,9 @@
       [{ "node": "Buscar Variacoes", "type": "main", "index": 0 }],
       [{ "node": "Loop Produtos", "type": "main", "index": 0 }]
     ]},
-    "Buscar Variacoes":       { "main": [[{ "node": "Filtrar Variacao", "type": "main", "index": 0 }]] },
-    "Filtrar Variacao":       { "main": [[{ "node": "Achou Variacao?", "type": "main", "index": 0 }]] },
-    "Achou Variacao?":        { "main": [
-      [{ "node": "Atualizar Preco", "type": "main", "index": 0 }],
-      [{ "node": "Loop Produtos", "type": "main", "index": 0 }]
-    ]},
-    "Atualizar Preco":        { "main": [[{ "node": "Loop Produtos", "type": "main", "index": 0 }]] }
+    "Buscar Variacoes":       { "main": [[{ "node": "Processar Variacoes", "type": "main", "index": 0 }]] },
+    "Processar Variacoes":    { "main": [[{ "node": "Atualizar Variacao", "type": "main", "index": 0 }]] },
+    "Atualizar Variacao":     { "main": [[{ "node": "Loop Produtos", "type": "main", "index": 0 }]] }
   },
   "settings": { "executionOrder": "v1" }
 }
