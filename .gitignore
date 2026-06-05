@@ -1,0 +1,8 @@
+# Credenciais reais — NUNCA versionar
+secrets.ps1
+*.secret.ps1
+.env
+
+# Saídas temporárias
+*.log
+tmp/
