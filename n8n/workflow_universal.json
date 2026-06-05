@@ -199,7 +199,19 @@
       "typeVersion": 2,
       "position": [1200, 440],
       "parameters": {
-        "jsCode": "const items = $input.all().map(i => i.json);\nconst EMOJI = { 'Black':'⚫','White':'⚪','Blue':'🔵','Deep Blue':'🔵','Lavender':'🟣','Sage':'🟢','Cosmic Orange':'🟠','Silver':'⚪','Gold':'🟡','Green':'🟢','Pink':'🩷','Teal':'🪵','Sky Blue':'🪵','Purple':'🟣','Red':'🔴','Yellow':'🟡' };\nconst ORDEM = ['128GB','256GB','512GB','1TB','2TB'];\nconst porModelo = {};\nfor (const it of items) {\n  if (!porModelo[it.modeloSite]) porModelo[it.modeloSite] = [];\n  porModelo[it.modeloSite].push(it);\n}\nconst hoje = new Date().toLocaleDateString('pt-BR');\nlet txt = '📱 *WORLDTECH PARAGUAY*\\n📅 ' + hoje + '\\n💵 Precos em USD - VAREJO\\n';\nconst nomes = Object.keys(porModelo).sort();\nfor (const nome of nomes) {\n  const lista = porModelo[nome];\n  const isIphone = nome.toLowerCase().includes('iphone');\n  txt += '\\n*' + nome + '*\\n';\n  if (isIphone) {\n    lista.sort((a,b)=>{ const aa=ORDEM.indexOf((a.atributos.Armazenamento||'')); const bb=ORDEM.indexOf((b.atributos.Armazenamento||'')); return aa-bb; });\n    for (const it of lista) {\n      const cor = it.atributos.Cor || '';\n      const arm = it.atributos.Armazenamento || '';\n      const em = EMOJI[cor] || '▪️';\n      txt += em + ' ' + arm + ' ' + cor + ': $' + it.preco + '\\n';\n    }\n  } else {\n    for (const it of lista) {\n      const apr = it.atributos.Apresentacao || it.atributos['Apresentação'] || '';\n      txt += '💉 ' + (apr ? apr + ' ' : '') + ': $' + it.preco + '\\n';\n    }\n  }\n}\ntxt += '\\n_Precos de atacado disponiveis, consulte._';\nreturn [{ json: { lista_clientes: txt }, pairedItem: { item: 0 } }];"
+        "jsCode": "const items = $input.all().map(i => i.json);\nconst EMOJI = { 'Black':'\\u26AB','White':'\\u26AA','Blue':'\\uD83D\\uDD35','Deep Blue':'\\uD83D\\uDD35','Lavender':'\\uD83D\\uDFE3','Sage':'\\uD83D\\uDFE2','Cosmic Orange':'\\uD83D\\uDFE0','Silver':'\\u26AA','Gold':'\\uD83D\\uDFE1','Green':'\\uD83D\\uDFE2','Pink':'\\uD83E\\uDE77','Teal':'\\uD83E\\uDE75','Sky Blue':'\\uD83E\\uDE75','Purple':'\\uD83D\\uDFE3','Red':'\\uD83D\\uDD34','Yellow':'\\uD83D\\uDFE1' };\nconst ORDEM = ['128GB','256GB','512GB','1TB','2TB'];\nconst porModelo = {};\nfor (const it of items) {\n  if (!porModelo[it.modeloSite]) porModelo[it.modeloSite] = [];\n  porModelo[it.modeloSite].push(it);\n}\nconst hoje = new Date().toLocaleDateString('pt-BR');\nlet txt = '\\uD83D\\uDCF1 *WORLDTECH PARAGUAY*\\n\\uD83D\\uDCC5 ' + hoje + '\\n\\uD83D\\uDCB5 Precos em USD - VAREJO\\n';\nconst nomes = Object.keys(porModelo).sort();\nfor (const nome of nomes) {\n  const lista = porModelo[nome];\n  const isIphone = nome.toLowerCase().includes('iphone');\n  txt += '\\n*' + nome + '*\\n';\n  if (isIphone) {\n    lista.sort((a,b)=>{ const aa=ORDEM.indexOf((a.atributos.Armazenamento||'')); const bb=ORDEM.indexOf((b.atributos.Armazenamento||'')); return aa-bb; });\n    for (const it of lista) {\n      const cor = it.atributos.Cor || '';\n      const arm = it.atributos.Armazenamento || '';\n      const em = EMOJI[cor] || '\\u25AA\\uFE0F';\n      txt += em + ' ' + arm + ' ' + cor + ': $' + it.preco + '\\n';\n    }\n  } else {\n    for (const it of lista) {\n      const apr = it.atributos.Apresentacao || it.atributos['Apresentação'] || '';\n      txt += '\\uD83D\\uDC89 ' + (apr ? apr + ' ' : '') + ': $' + it.preco + '\\n';\n    }\n  }\n}\ntxt += '\\n_Precos de atacado disponiveis, consulte._';\nreturn [{ json: { lista_clientes: txt }, pairedItem: { item: 0 } }];"
+      }
+    },
+    {
+      "id": "t_file",
+      "name": "Lista em Arquivo TXT",
+      "type": "n8n-nodes-base.convertToFile",
+      "typeVersion": 1.1,
+      "position": [1400, 440],
+      "parameters": {
+        "operation": "toText",
+        "sourceProperty": "lista_clientes",
+        "options": { "fileName": "lista_clientes.txt" }
       }
     }
   ],
@@ -213,6 +225,7 @@
       { "node": "Agrupar por Produto", "type": "main", "index": 0 },
       { "node": "Gerar Lista Clientes", "type": "main", "index": 0 }
     ]]},
+    "Gerar Lista Clientes":   { "main": [[{ "node": "Lista em Arquivo TXT", "type": "main", "index": 0 }]] },
     "Agrupar por Produto":    { "main": [[{ "node": "Loop Produtos", "type": "main", "index": 0 }]] },
     "Loop Produtos":          { "main": [[{ "node": "Buscar Produto", "type": "main", "index": 0 }]] },
     "Buscar Produto":         { "main": [[{ "node": "Filtrar Produto", "type": "main", "index": 0 }]] },
