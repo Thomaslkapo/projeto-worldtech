@@ -49,7 +49,7 @@
         "method": "POST",
         "url": "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-lite:generateContent",
         "authentication": "genericCredentialType",
-        "genericAuthType": "httpQueryAuth",
+        "genericAuthType": "httpHeaderAuth",
         "sendHeaders": true,
         "headerParameters": {
           "parameters": [
@@ -62,7 +62,7 @@
         "options": {}
       },
       "credentials": {
-        "httpQueryAuth": { "id": "XG9shzCPpSqkwObC", "name": "Gemini API Key" }
+        "httpHeaderAuth": { "id": "4n1TKySU62GllhXW", "name": "Gemini Header Key" }
       }
     },
     {
@@ -106,7 +106,7 @@
         "options": {}
       },
       "credentials": {
-        "httpBasicAuth": { "id": "OxgDYL6BS2Gr1xMG", "name": "Unnamed credential" }
+        "httpBasicAuth": { "id": "vfz7lxQ7llBTKg1A", "name": "WooCommerce WorldTech v2" }
       }
     },
     {
@@ -149,7 +149,7 @@
         "options": {}
       },
       "credentials": {
-        "httpBasicAuth": { "id": "OxgDYL6BS2Gr1xMG", "name": "Unnamed credential" }
+        "httpBasicAuth": { "id": "vfz7lxQ7llBTKg1A", "name": "WooCommerce WorldTech v2" }
       }
     },
     {
@@ -159,7 +159,7 @@
       "typeVersion": 2,
       "position": [2420, 300],
       "parameters": {
-        "jsCode": "const vars=$input.all().map(i=>i.json);\nconst src=$('Loop Produtos').item.json;\nconst atrs=src.atributos||{};\nfunction nv(s){return (s||'').toString().toUpperCase().replace(/\\s+/g,'');}\nconst GRUPOS=[['1X','MD','1VIAL','MONODOSE'],['4X','4VIAL'],['PEN','CANETA']];\nfunction equiv(a,b){a=nv(a);b=nv(b);if(a===b)return true;for(const g of GRUPOS){if(g.includes(a)&&g.includes(b))return true;}return false;}\nfunction match(v,attrs){\n  for(const k of Object.keys(attrs)){\n    const want=attrs[k];\n    const ok=(v.attributes||[]).some(a=> equiv(a.option,want));\n    if(!ok)return false;\n  }\n  return true;\n}\nconst found=vars.filter(v=>match(v,atrs));\nif(found.length===0)return[{json:{skip:true,motivo:'variacao_nao_encontrada',atributos:atrs,pai_nome:src.pai_nome},pairedItem:{item:0}}];\nreturn found.map(v=>({json:{...src,var_id:v.id,preco_atual:v.regular_price},pairedItem:{item:0}}));"
+        "jsCode": "const vars=$input.all().map(i=>i.json);\nconst src=$('Filtrar Produto').item.json;\nconst atrs=src.atributos||{};\nfunction nv(s){return (s||'').toString().toUpperCase().replace(/\\s+/g,'');}\nconst GRUPOS=[['1X','MD','1VIAL','MONODOSE'],['4X','4VIAL'],['PEN','CANETA']];\nfunction equiv(a,b){a=nv(a);b=nv(b);if(a===b)return true;for(const g of GRUPOS){if(g.includes(a)&&g.includes(b))return true;}return false;}\nfunction match(v,attrs){\n  for(const k of Object.keys(attrs)){\n    const want=attrs[k];\n    const ok=(v.attributes||[]).some(a=> equiv(a.option,want));\n    if(!ok)return false;\n  }\n  return true;\n}\nconst found=vars.filter(v=>match(v,atrs));\nif(found.length===0)return[{json:{skip:true,motivo:'variacao_nao_encontrada',atributos:atrs,pai_nome:src.pai_nome},pairedItem:{item:0}}];\nreturn found.map(v=>({json:{...src,var_id:v.id,preco_atual:v.regular_price},pairedItem:{item:0}}));"
       }
     },
     {
@@ -200,7 +200,7 @@
         "options": {}
       },
       "credentials": {
-        "httpBasicAuth": { "id": "OxgDYL6BS2Gr1xMG", "name": "Unnamed credential" }
+        "httpBasicAuth": { "id": "vfz7lxQ7llBTKg1A", "name": "WooCommerce WorldTech v2" }
       }
     }
   ],
