@@ -1,25 +1,16 @@
 <?php
 /**
- * WorldTech - Finalizacao de compra via WhatsApp
+ * WorldTech - Finalizacao de compra via WhatsApp (versao robusta p/ tema Shoptimizer)
  *
- * Substitui o botao "Finalizar compra" da pagina do carrinho por um botao
- * que abre o WhatsApp da loja com todos os itens do carrinho na mensagem.
+ * Substitui o botao "Finalizar compra" do carrinho por um botao que abre o
+ * WhatsApp da loja com todos os itens do carrinho na mensagem.
  *
- * COMO INSTALAR (plugin Code Snippets):
- *   1. wp-admin -> Snippets -> Add New
- *   2. Titulo: "WhatsApp Checkout"
- *   3. Cole o codigo ABAIXO (sem a linha <?php do topo)
- *   4. Marque "Run snippet everywhere"
- *   5. Save Changes and Activate
+ * COMO INSTALAR (Code Snippets): cole o codigo abaixo (sem a linha <?php),
+ * marque "Run snippet everywhere", Salve e Ative. Depois LIMPE O CACHE.
  */
 
-// 1) Remove o botao padrao "Finalizar compra"
-add_action( 'wp', function () {
-    remove_action( 'woocommerce_proceed_to_checkout', 'woocommerce_button_proceed_to_checkout', 20 );
-} );
-
-// 2) Adiciona o botao do WhatsApp com o carrinho na mensagem
-add_action( 'woocommerce_proceed_to_checkout', 'worldtech_whatsapp_checkout_button', 20 );
+// 1) Adiciona o botao do WhatsApp (prioridade 5 = antes do botao do tema)
+add_action( 'woocommerce_proceed_to_checkout', 'worldtech_whatsapp_checkout_button', 5 );
 function worldtech_whatsapp_checkout_button() {
 
     $numero = '595975682071'; // WhatsApp da loja (so digitos, com DDI)
@@ -27,11 +18,9 @@ function worldtech_whatsapp_checkout_button() {
     $msg = "Olá! Quero finalizar meu pedido:\n\n";
 
     foreach ( WC()->cart->get_cart() as $item ) {
-
         $nome = get_the_title( $item['product_id'] );
         $qtd  = $item['quantity'];
 
-        // atributos da variacao (Cor, Armazenamento) com nomes legiveis
         $extra = '';
         if ( ! empty( $item['variation'] ) ) {
             $vals = array();
@@ -45,14 +34,10 @@ function worldtech_whatsapp_checkout_button() {
                     $vals[] = $slug;
                 }
             }
-            if ( $vals ) {
-                $extra = ' (' . implode( ', ', $vals ) . ')';
-            }
+            if ( $vals ) { $extra = ' (' . implode( ', ', $vals ) . ')'; }
         }
 
-        // subtotal do item, sem HTML
         $subtotal = wp_strip_all_tags( WC()->cart->get_product_subtotal( $item['data'], $qtd ) );
-
         $msg .= "• {$qtd}x {$nome}{$extra}: {$subtotal}\n";
     }
 
@@ -62,7 +47,27 @@ function worldtech_whatsapp_checkout_button() {
     $link = 'https://wa.me/' . $numero . '?text=' . rawurlencode( $msg );
 
     echo '<a href="' . esc_url( $link ) . '" target="_blank" rel="noopener nofollow" '
-       . 'class="checkout-button button alt wc-forward" '
-       . 'style="display:block;text-align:center;background:#25D366;border-color:#25D366;color:#ffffff;">'
+       . 'class="checkout-button button alt wc-forward worldtech-wa-btn">'
        . 'Finalizar pedido pelo WhatsApp</a>';
 }
+
+// 2) Tenta remover o botao padrao pelo hook (caso o tema use o padrao)
+add_action( 'wp', function () {
+    remove_action( 'woocommerce_proceed_to_checkout', 'woocommerce_button_proceed_to_checkout', 20 );
+} );
+
+// 3) Esconde via CSS qualquer botao de checkout que NAO seja o nosso (à prova de tema)
+add_action( 'wp_head', function () {
+    if ( function_exists( 'is_cart' ) && is_cart() ) {
+        echo '<style>
+            .wc-proceed-to-checkout a.checkout-button:not(.worldtech-wa-btn),
+            .wc-proceed-to-checkout a.cgkit-proceed-to-checkout:not(.worldtech-wa-btn),
+            a.checkout-button.alt:not(.worldtech-wa-btn) { display:none !important; }
+            a.worldtech-wa-btn {
+                display:block !important; text-align:center !important;
+                background:#25D366 !important; border-color:#25D366 !important;
+                color:#ffffff !important;
+            }
+        </style>';
+    }
+} );
