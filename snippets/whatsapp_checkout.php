@@ -14,6 +14,7 @@ function worldtech_whatsapp_link() {
     if ( ! function_exists( 'WC' ) || ! WC()->cart ) { return '#'; }
 
     $numero = '595975682071'; // WhatsApp da loja (so digitos, com DDI)
+    $simbolo = html_entity_decode( get_woocommerce_currency_symbol(), ENT_QUOTES, 'UTF-8' );
     $msg    = "Olá! Quero finalizar meu pedido:\n\n";
 
     foreach ( WC()->cart->get_cart() as $item ) {
@@ -36,11 +37,11 @@ function worldtech_whatsapp_link() {
             if ( $vals ) { $extra = ' (' . implode( ', ', $vals ) . ')'; }
         }
 
-        $subtotal = wp_strip_all_tags( WC()->cart->get_product_subtotal( $item['data'], $qtd ) );
+        $subtotal = $simbolo . number_format( (float) $item['line_total'], 2 );
         $msg     .= "• {$qtd}x {$nome}{$extra}: {$subtotal}\n";
     }
 
-    $total = wp_strip_all_tags( WC()->cart->get_cart_total() );
+    $total = $simbolo . number_format( (float) WC()->cart->get_total( 'edit' ), 2 );
     $msg  .= "\n*Total: {$total}*";
 
     return 'https://wa.me/' . $numero . '?text=' . rawurlencode( $msg );
@@ -48,13 +49,13 @@ function worldtech_whatsapp_link() {
 
 // Botao na PAGINA do carrinho
 add_action( 'woocommerce_proceed_to_checkout', function () {
-    echo '<a href="' . esc_url( worldtech_whatsapp_link() ) . '" target="_blank" rel="noopener nofollow" '
+    echo '<a href="' . esc_attr( worldtech_whatsapp_link() ) . '" target="_blank" rel="noopener nofollow" '
        . 'class="checkout-button button alt wc-forward worldtech-wa-btn">Finalizar pedido pelo WhatsApp</a>';
 }, 5 );
 
 // Botao no MINI-CART / side cart
 add_action( 'woocommerce_widget_shopping_cart_buttons', function () {
-    echo '<a href="' . esc_url( worldtech_whatsapp_link() ) . '" target="_blank" rel="noopener nofollow" '
+    echo '<a href="' . esc_attr( worldtech_whatsapp_link() ) . '" target="_blank" rel="noopener nofollow" '
        . 'class="button checkout wc-forward worldtech-wa-btn">Finalizar pelo WhatsApp</a>';
 }, 30 );
 
