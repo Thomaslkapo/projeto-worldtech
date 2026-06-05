@@ -72,9 +72,11 @@ add_action( 'wp_head', function () {
         .widget_shopping_cart a.checkout:not(.worldtech-wa-btn),
         a.checkout-button.alt:not(.worldtech-wa-btn) { display:none !important; }
         a.worldtech-wa-btn {
-            display:block !important; text-align:center !important;
+            display:flex !important; align-items:center !important; justify-content:center !important;
+            gap:8px; text-align:center !important; line-height:1.2 !important;
             background:#25D366 !important; border-color:#25D366 !important; color:#ffffff !important;
         }
+        a.worldtech-wa-btn::before { margin:0 !important; align-self:center !important; }
     </style>';
 } );
 
