@@ -10,8 +10,8 @@
       "parameters": {}
     },
     {
-      "id": "t2",
-      "name": "JSON de Precos",
+      "id": "t_msg",
+      "name": "Mensagens Fornecedores",
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [220, 300],
@@ -19,10 +19,10 @@
         "assignments": {
           "assignments": [
             {
-              "id": "a1",
-              "name": "lista_precos",
-              "type": "array",
-              "value": "=[]"
+              "id": "m1",
+              "name": "mensagem",
+              "type": "string",
+              "value": "*MESTRE LISTA ATUALIZADA*\n\n*IPHONE 16-128GB*\nBLACK - 675$\nTEAL 675$\nWHITE 675$\n\n*IPHONE 17-256GB*\nBLUE 765$\nLAVANDER 770$\nSAGE 765$\n\n*IPHONE 17E-256GB*\nBLACK 565$\nWHITE 565$\n\n*17-PRO 256GB*\nORANGE 1.150$\nBLUE 1.150$\nSILVER 1.180$"
             }
           ]
         },
@@ -30,13 +30,49 @@
       }
     },
     {
-      "id": "t3",
-      "name": "Extrair Itens",
+      "id": "t_prompt",
+      "name": "Montar Requisicao Gemini",
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [440, 300],
       "parameters": {
-        "jsCode": "const lista = $json.lista_precos;\nif (!lista || !Array.isArray(lista)) throw new Error('Campo lista_precos ausente ou invalido.');\nreturn lista.map(item => ({ json: item, pairedItem: { item: 0 } }));"
+        "jsCode": "const mensagem = $json.mensagem || '';\nconst prompt = [\n'Voce e um parser de listas de precos de fornecedores (iPhones e farmacos). Detecte o FORNECEDOR pelos cabecalhos no texto (ex: ISPACE, MESTRE, BEST SHOP=BEST, SWAP STORE=SWAP, MONARCA, BYMAC, STAR).',\n'Retorne SOMENTE um array JSON valido. Cada item tem:',\n'- modeloSite: para iPhone use exatamente \\\"iPhone 16\\\",\\\"iPhone 17\\\",\\\"iPhone 17E\\\",\\\"iPhone 17 Pro\\\",\\\"iPhone 17 Pro Max\\\",\\\"iPhone 17 Air\\\". Para farmaco use MARCA + tipo + dosagem, ex \\\"TIRZEC Tirzepatida 15mg\\\", \\\"MOUNJARO Mounjaro 10mg\\\", \\\"DYSPORT Dysport 500U\\\".',\n'- atributos: para iPhone { \\\"Armazenamento\\\": \\\"128GB|256GB|512GB|1TB|2TB\\\", \\\"Cor\\\": <em ingles> }. Para farmaco { \\\"Apresentacao\\\": \\\"1x|4x|MD|PEN\\\", \\\"Dosagem\\\": \\\"15mg\\\" }.',\n'- preco: numero sem simbolo e sem ponto de milhar (1.150 vira 1150).',\n'- fornecedor: nome detectado.',\n'Cores iPhone: LARANJA/ORANGE/COSMIC ORANGE em Pro ou Pro Max = Cosmic Orange; AZUL/BLUE em 17 Pro e 17 Pro Max = Deep Blue; AZUL/BLUE em iPhone 16 ou 17 comum = Blue; LILAS/LAVANDER = Lavender; BRANCO = White; PRETO/BLACK = Black; SILVER/PRATA = Silver; DOURADO = Gold; VERDE = Green; SAGE = Sage; TEAL = Teal; SKY BLUE = Sky Blue.',\n'Apresentacao farmaco: monodose / 1 vial / MD / 1x = 1x; 4 vial / 4x = 4x; caneta / PEN / UK = PEN.',\n'Ignore itens sem preco e ignore acessorios (iPad, Macbook, agua bacteriostatica). Apenas iPhones e farmacos injetaveis/peptideos.',\n'',\n'Mensagem:',\nmensagem\n].join('\\n');\n\nconst body = {\n  contents: [{ parts: [{ text: prompt }] }],\n  generationConfig: { responseMimeType: 'application/json' }\n};\n\nreturn [{ json: { geminiBody: JSON.stringify(body) }, pairedItem: { item: 0 } }];"
+      }
+    },
+    {
+      "id": "t_gem",
+      "name": "Gemini Parser",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.4,
+      "position": [660, 300],
+      "parameters": {
+        "method": "POST",
+        "url": "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-lite:generateContent",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpQueryAuth",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            { "name": "Content-Type", "value": "application/json; charset=utf-8" }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ $json.geminiBody }}",
+        "options": {}
+      },
+      "credentials": {
+        "httpQueryAuth": { "id": "XG9shzCPpSqkwObC", "name": "Gemini API Key" }
+      }
+    },
+    {
+      "id": "t_extract",
+      "name": "Extrair JSON Gemini",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [880, 300],
+      "parameters": {
+        "jsCode": "const resp = $json;\nlet text = '';\ntry { text = resp.candidates[0].content.parts[0].text || ''; } catch(e) { throw new Error('Resposta do Gemini sem texto: ' + JSON.stringify(resp).slice(0,300)); }\ntext = text.replace(/```json/gi,'').replace(/```/g,'').trim();\nlet arr;\ntry { arr = JSON.parse(text); } catch(e) { throw new Error('Gemini nao retornou JSON valido: ' + text.slice(0,300)); }\nif (!Array.isArray(arr)) arr = arr.lista_precos || [];\nif (arr.length === 0) throw new Error('Gemini retornou lista vazia.');\nreturn arr.map(item => ({ json: item, pairedItem: { item: 0 } }));"
       }
     },
     {
@@ -44,9 +80,9 @@
       "name": "Comparar e Calcular",
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
-      "position": [660, 300],
+      "position": [1100, 300],
       "parameters": {
-        "jsCode": "// Agrupa por produto+atributos e aplica formula de precificacao\nconst items = $input.all().map(i => i.json);\n\nconst grupos = {};\nfor (const item of items) {\n  const chave = item.modeloSite + '|' + JSON.stringify(item.atributos || {});\n  if (!grupos[chave]) {\n    grupos[chave] = {\n      modeloSite: item.modeloSite,\n      atributos:  item.atributos || {},\n      precos: []\n    };\n  }\n  if (item.preco > 0) grupos[chave].precos.push(Number(item.preco));\n}\n\nconst resultados = [];\nfor (const g of Object.values(grupos)) {\n  if (g.precos.length === 0) continue;\n  const menor = Math.min(...g.precos);\n  const maior = Math.max(...g.precos);\n  const variacao = maior - menor;\n  let preco, preco_atacado;\n\n  if (g.modeloSite.toLowerCase().includes('iphone')) {\n    // Formula iPhone: varejo = min(maior+50, menor+65)\n    preco = Math.min(maior + 50, menor + 65);\n    // Atacado em degraus\n    if (variacao <= 35)      preco_atacado = maior + 15;\n    else if (variacao <= 50) preco_atacado = maior + 10;\n    else                     preco_atacado = maior + 5;\n  } else {\n    // Formula farmacos: varejo = maior+12, atacado = maior+5\n    preco = maior + 12;\n    preco_atacado = maior + 5;\n  }\n\n  resultados.push({\n    json: {\n      modeloSite:       g.modeloSite,\n      atributos:        g.atributos,\n      preco,\n      preco_atacado,\n      preco_compra:     menor,\n      preco_maior:      maior,\n      variacao,\n      num_fornecedores: g.precos.length\n    },\n    pairedItem: { item: 0 }\n  });\n}\n\nreturn resultados;"
+        "jsCode": "const items = $input.all().map(i => i.json);\n\nconst grupos = {};\nfor (const item of items) {\n  const chave = item.modeloSite + '|' + JSON.stringify(item.atributos || {});\n  if (!grupos[chave]) {\n    grupos[chave] = { modeloSite: item.modeloSite, atributos: item.atributos || {}, precos: [] };\n  }\n  if (item.preco > 0) grupos[chave].precos.push(Number(item.preco));\n}\n\nconst resultados = [];\nfor (const g of Object.values(grupos)) {\n  if (g.precos.length === 0) continue;\n  const menor = Math.min(...g.precos);\n  const maior = Math.max(...g.precos);\n  const variacao = maior - menor;\n  let preco, preco_atacado;\n  if (g.modeloSite.toLowerCase().includes('iphone')) {\n    preco = Math.min(maior + 50, menor + 65);\n    if (variacao <= 35)      preco_atacado = maior + 15;\n    else if (variacao <= 50) preco_atacado = maior + 10;\n    else                     preco_atacado = maior + 5;\n  } else {\n    preco = maior + 12;\n    preco_atacado = maior + 5;\n  }\n  resultados.push({ json: { modeloSite: g.modeloSite, atributos: g.atributos, preco, preco_atacado, preco_compra: menor, preco_maior: maior, variacao, num_fornecedores: g.precos.length }, pairedItem: { item: 0 } });\n}\nreturn resultados;"
       }
     },
     {
@@ -54,18 +90,15 @@
       "name": "Loop Produtos",
       "type": "n8n-nodes-base.splitInBatches",
       "typeVersion": 2,
-      "position": [880, 300],
-      "parameters": {
-        "batchSize": 1,
-        "options": {}
-      }
+      "position": [1320, 300],
+      "parameters": { "batchSize": 1, "options": {} }
     },
     {
       "id": "t5",
       "name": "Buscar Produto",
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.4,
-      "position": [1100, 300],
+      "position": [1540, 300],
       "parameters": {
         "url": "=https://worldtechparaguai.com/wp-json/wc/v3/products?per_page=100&search={{$json.modeloSite}}",
         "authentication": "genericCredentialType",
@@ -81,7 +114,7 @@
       "name": "Filtrar Produto",
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
-      "position": [1320, 300],
+      "position": [1760, 300],
       "parameters": {
         "jsCode": "const lista = $input.all().map(i => i.json);\nconst src = $('Loop Produtos').item.json;\nfunction norm(s){ return (s||'').toLowerCase().replace(/\\s+/g,' ').trim(); }\nconst n0=norm(src.modeloSite);\nconst wPM=n0.includes('pro max');\nconst wP=!wPM&&n0.includes('pro');\nconst wAir=n0.includes('air');\nconst wE=/\\d+e\\b/.test(n0);\nconst wPL=n0.includes('plus');\nlet best=null,pts=-1;\nfor(const item of lista){\n  const n1=norm(item.name||'');\n  const hPM=n1.includes('pro max');\n  const hP=!hPM&&n1.includes('pro');\n  const hAir=n1.includes('air');\n  const hE=/\\d+e\\b/.test(n1);\n  const hPL=n1.includes('plus');\n  if(hPM&&!wPM)continue;\n  if(hP&&!wP)continue;\n  if(hAir&&!wAir)continue;\n  if(hPL&&!wPL)continue;\n  if(wPM&&!hPM)continue;\n  if(wP&&!hP)continue;\n  if(wAir&&!hAir)continue;\n  if(wE&&!hE)continue;\n  if(!wE&&hE)continue;\n  let p=0;\n  for(const w of n0.split(' '))if(n1.includes(w))p++;\n  if(p>pts){pts=p;best=item;}\n}\nif(!best)return[{json:{skip:true,motivo:'produto_nao_encontrado',modeloSite:src.modeloSite},pairedItem:{item:0}}];\nreturn[{json:{...src,pai_id:best.id,pai_nome:best.name},pairedItem:{item:0}}];"
       }
@@ -91,16 +124,12 @@
       "name": "Achou Produto?",
       "type": "n8n-nodes-base.if",
       "typeVersion": 2.3,
-      "position": [1540, 300],
+      "position": [1980, 300],
       "parameters": {
         "conditions": {
           "combinator": "and",
           "conditions": [
-            {
-              "leftValue": "={{$json.skip}}",
-              "rightValue": true,
-              "operator": { "type": "boolean", "operation": "notEquals" }
-            }
+            { "leftValue": "={{$json.skip}}", "rightValue": true, "operator": { "type": "boolean", "operation": "notEquals" } }
           ],
           "options": {}
         },
@@ -112,7 +141,7 @@
       "name": "Buscar Variacoes",
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.4,
-      "position": [1760, 300],
+      "position": [2200, 300],
       "parameters": {
         "url": "=https://worldtechparaguai.com/wp-json/wc/v3/products/{{$json.pai_id}}/variations?per_page=100",
         "authentication": "genericCredentialType",
@@ -128,9 +157,9 @@
       "name": "Filtrar Variacao",
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
-      "position": [1980, 300],
+      "position": [2420, 300],
       "parameters": {
-        "jsCode": "const vars=$input.all().map(i=>i.json);\nconst src=$('Loop Produtos').item.json;\nconst atrs=src.atributos||{};\nfunction nv(s){return (s||'').toString().toUpperCase().replace(/\\s+/g,'');}\nfunction match(v,attrs){\n  for(const [k,val] of Object.entries(attrs)){\n    const kn=nv(k); const vn=nv(val);\n    const ok=(v.attributes||[]).some(a=>\n      (nv(a.name)===kn||nv(a.slug).replace(/-/g,'').includes(kn.toLowerCase().replace(/\\s/g,''))) && nv(a.option)===vn\n    );\n    if(!ok)return false;\n  }\n  return true;\n}\nconst found=vars.filter(v=>match(v,atrs));\nif(found.length===0)return[{json:{skip:true,motivo:'variacao_nao_encontrada',atributos:atrs,pai_nome:src.pai_nome},pairedItem:{item:0}}];\nreturn found.map(v=>({json:{...src,var_id:v.id,preco_atual:v.regular_price},pairedItem:{item:0}}));"
+        "jsCode": "const vars=$input.all().map(i=>i.json);\nconst src=$('Loop Produtos').item.json;\nconst atrs=src.atributos||{};\nfunction nv(s){return (s||'').toString().toUpperCase().replace(/\\s+/g,'');}\nconst GRUPOS=[['1X','MD','1VIAL','MONODOSE'],['4X','4VIAL'],['PEN','CANETA']];\nfunction equiv(a,b){a=nv(a);b=nv(b);if(a===b)return true;for(const g of GRUPOS){if(g.includes(a)&&g.includes(b))return true;}return false;}\nfunction match(v,attrs){\n  for(const k of Object.keys(attrs)){\n    const want=attrs[k];\n    const ok=(v.attributes||[]).some(a=> equiv(a.option,want));\n    if(!ok)return false;\n  }\n  return true;\n}\nconst found=vars.filter(v=>match(v,atrs));\nif(found.length===0)return[{json:{skip:true,motivo:'variacao_nao_encontrada',atributos:atrs,pai_nome:src.pai_nome},pairedItem:{item:0}}];\nreturn found.map(v=>({json:{...src,var_id:v.id,preco_atual:v.regular_price},pairedItem:{item:0}}));"
       }
     },
     {
@@ -138,16 +167,12 @@
       "name": "Achou Variacao?",
       "type": "n8n-nodes-base.if",
       "typeVersion": 2.3,
-      "position": [2200, 300],
+      "position": [2640, 300],
       "parameters": {
         "conditions": {
           "combinator": "and",
           "conditions": [
-            {
-              "leftValue": "={{$json.skip}}",
-              "rightValue": true,
-              "operator": { "type": "boolean", "operation": "notEquals" }
-            }
+            { "leftValue": "={{$json.skip}}", "rightValue": true, "operator": { "type": "boolean", "operation": "notEquals" } }
           ],
           "options": {}
         },
@@ -159,7 +184,7 @@
       "name": "Atualizar Preco",
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.4,
-      "position": [2420, 300],
+      "position": [2860, 300],
       "parameters": {
         "method": "PUT",
         "url": "=https://worldtechparaguai.com/wp-json/wc/v3/products/{{$json.pai_id}}/variations/{{$json.var_id}}",
@@ -180,24 +205,26 @@
     }
   ],
   "connections": {
-    "Executar workflow": { "main": [[{ "node": "JSON de Precos",       "type": "main", "index": 0 }]] },
-    "JSON de Precos":    { "main": [[{ "node": "Extrair Itens",        "type": "main", "index": 0 }]] },
-    "Extrair Itens":     { "main": [[{ "node": "Comparar e Calcular",  "type": "main", "index": 0 }]] },
-    "Comparar e Calcular": { "main": [[{ "node": "Loop Produtos",      "type": "main", "index": 0 }]] },
-    "Loop Produtos":     { "main": [[{ "node": "Buscar Produto",       "type": "main", "index": 0 }]] },
-    "Buscar Produto":    { "main": [[{ "node": "Filtrar Produto",      "type": "main", "index": 0 }]] },
-    "Filtrar Produto":   { "main": [[{ "node": "Achou Produto?",       "type": "main", "index": 0 }]] },
-    "Achou Produto?": { "main": [
+    "Executar workflow":      { "main": [[{ "node": "Mensagens Fornecedores", "type": "main", "index": 0 }]] },
+    "Mensagens Fornecedores": { "main": [[{ "node": "Montar Requisicao Gemini", "type": "main", "index": 0 }]] },
+    "Montar Requisicao Gemini": { "main": [[{ "node": "Gemini Parser", "type": "main", "index": 0 }]] },
+    "Gemini Parser":          { "main": [[{ "node": "Extrair JSON Gemini", "type": "main", "index": 0 }]] },
+    "Extrair JSON Gemini":    { "main": [[{ "node": "Comparar e Calcular", "type": "main", "index": 0 }]] },
+    "Comparar e Calcular":    { "main": [[{ "node": "Loop Produtos", "type": "main", "index": 0 }]] },
+    "Loop Produtos":          { "main": [[{ "node": "Buscar Produto", "type": "main", "index": 0 }]] },
+    "Buscar Produto":         { "main": [[{ "node": "Filtrar Produto", "type": "main", "index": 0 }]] },
+    "Filtrar Produto":        { "main": [[{ "node": "Achou Produto?", "type": "main", "index": 0 }]] },
+    "Achou Produto?":         { "main": [
       [{ "node": "Buscar Variacoes", "type": "main", "index": 0 }],
-      [{ "node": "Loop Produtos",    "type": "main", "index": 0 }]
+      [{ "node": "Loop Produtos", "type": "main", "index": 0 }]
     ]},
-    "Buscar Variacoes":  { "main": [[{ "node": "Filtrar Variacao",     "type": "main", "index": 0 }]] },
-    "Filtrar Variacao":  { "main": [[{ "node": "Achou Variacao?",      "type": "main", "index": 0 }]] },
-    "Achou Variacao?": { "main": [
+    "Buscar Variacoes":       { "main": [[{ "node": "Filtrar Variacao", "type": "main", "index": 0 }]] },
+    "Filtrar Variacao":       { "main": [[{ "node": "Achou Variacao?", "type": "main", "index": 0 }]] },
+    "Achou Variacao?":        { "main": [
       [{ "node": "Atualizar Preco", "type": "main", "index": 0 }],
-      [{ "node": "Loop Produtos",   "type": "main", "index": 0 }]
+      [{ "node": "Loop Produtos", "type": "main", "index": 0 }]
     ]},
-    "Atualizar Preco":   { "main": [[{ "node": "Loop Produtos",        "type": "main", "index": 0 }]] }
+    "Atualizar Preco":        { "main": [[{ "node": "Loop Produtos", "type": "main", "index": 0 }]] }
   },
   "settings": { "executionOrder": "v1" }
 }
