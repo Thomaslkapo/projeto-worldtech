@@ -34,7 +34,10 @@ $imgs = @(
     @{id=10817; t='BIOGENESIS GHK-CU 100mg'}
     @{id=10816; t='ALLUVI Retatrutide 40mg'}
     @{id=10815; t='ALLUVI BPC-157 + TB-500'}
-    @{id=10874; t='SLU-PP-332'}
+    @{id=10875; t='BIONEXIS TESAMORELIN'}
+    @{id=10879; t='SLU-PP-332'}
+    @{id=10877; t='SS-31'}
+    @{id=10876; t='TB-500'}
     @{id=10873; t='Retatrutide'}
     @{id=10872; t='PT-141'}
     @{id=10868; t='MOTS-C'}
@@ -87,7 +90,7 @@ foreach ($im in $imgs) {
     $mk = Get-Marca $im.t
     if ($mk) { continue }
     $fm = Norm-Formula $im.t
-    $alvos = $farm | Where-Object { $_.fm -eq $fm -and -not $_.temImg -and -not $setados.ContainsKey($_.id) }
+    $alvos = $farm | Where-Object { $_.fm -eq $fm -and -not $setados.ContainsKey($_.id) }
     if ($alvos.Count -eq 0) { Write-Host ("  IMG '{0}' (formula '{1}') -> nenhum produto sem imagem" -f $im.t, $fm); continue }
     foreach ($a in $alvos) {
         Write-Host ("  IMG '{0}' -> [{1}] {2}" -f $im.t, $a.id, $a.name)
