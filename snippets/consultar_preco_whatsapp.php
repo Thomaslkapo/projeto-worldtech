@@ -1,57 +1,90 @@
 <?php
 /**
- * WorldTech - Botao "Consultar preco" via WhatsApp para produtos SEM preco
+ * WorldTech - "Consultar preco" via WhatsApp para produtos SEM preco
  *
- * Produtos sem preco (que mostram "Preco sob consulta") ganham um botao que leva
- * ao WhatsApp da loja perguntando o preco daquele produto.
- * Produtos COM preco (iPhones, farmacos) mantem o botao normal.
+ * Produtos sem preco (que mostram "Preco sob consulta"):
+ *  - Grade da loja: botao "Consultar preco"
+ *  - Pagina do produto: o botao "Adicionar ao carrinho" vira "Consultar preco" e,
+ *    ao clicar, abre o WhatsApp com a QUANTIDADE e a COR/variacao escolhidas.
+ * Produtos COM preco (iPhones, farmacos) seguem normais.
  *
  * Instalar no Code Snippets (sem a linha <?php), Run everywhere, ativar, limpar cache.
  */
 
-// Gera o link do WhatsApp perguntando o preco do produto
-function worldtech_consultar_link( $product ) {
+function worldtech_sem_preco( $product ) {
+    if ( ! $product ) { return false; }
+    $p = $product->get_price();
+    return ( $p === '' || $p === null );
+}
+
+function worldtech_consultar_link_simples( $product ) {
     $numero = '595975682071';
-    $nome   = $product->get_name();
-    $msg    = "Olá! Gostaria de saber o preço deste produto: " . $nome . ". Quanto está custando?";
+    $msg    = "Olá! Gostaria de saber o preço deste produto: " . $product->get_name() . ". Quanto está custando?";
     return 'https://wa.me/' . $numero . '?text=' . rawurlencode( $msg );
 }
 
-// Considera "sob consulta" quando nao tem preco definido
-function worldtech_sem_preco( $product ) {
-    if ( ! $product ) { return false; }
-    $preco = $product->get_price();
-    return ( $preco === '' || $preco === null );
-}
-
-// 1) GRADE DA LOJA: troca o botao de carrinho/opcoes por "Consultar preco"
+// 1) GRADE DA LOJA
 add_filter( 'woocommerce_loop_add_to_cart_link', function ( $html, $product ) {
     if ( worldtech_sem_preco( $product ) ) {
-        $link = worldtech_consultar_link( $product );
-        $html = '<a href="' . esc_attr( $link ) . '" target="_blank" rel="noopener nofollow" '
-              . 'class="button worldtech-consultar-btn">Consultar preço</a>';
+        if ( $product->is_type( 'variable' ) ) {
+            // leva para a pagina do produto (pra escolher cor e quantidade)
+            $html = '<a href="' . esc_url( $product->get_permalink() ) . '" class="button worldtech-consultar-btn">Consultar preço</a>';
+        } else {
+            $html = '<a href="' . esc_attr( worldtech_consultar_link_simples( $product ) ) . '" target="_blank" rel="noopener nofollow" class="button worldtech-consultar-btn">Consultar preço</a>';
+        }
     }
     return $html;
 }, 10, 2 );
 
-// 2) PAGINA DO PRODUTO: remove o "adicionar ao carrinho" e mostra "Consultar preco"
-add_action( 'woocommerce_single_product_summary', function () {
+// 2) PAGINA DO PRODUTO: muda o texto do botao
+add_filter( 'woocommerce_product_single_add_to_cart_text', function ( $text ) {
     global $product;
-    if ( worldtech_sem_preco( $product ) ) {
-        remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_add_to_cart', 30 );
-        $link = worldtech_consultar_link( $product );
-        echo '<a href="' . esc_attr( $link ) . '" target="_blank" rel="noopener nofollow" '
-           . 'class="button alt worldtech-consultar-btn">Consultar preço pelo WhatsApp</a>';
-    }
-}, 25 );
+    if ( worldtech_sem_preco( $product ) ) { return 'Consultar preço'; }
+    return $text;
+} );
 
-// 3) Estilo do botao (verde WhatsApp)
+// 3) PAGINA DO PRODUTO: intercepta o clique e abre o WhatsApp com qtd + cor
+add_action( 'woocommerce_after_add_to_cart_button', function () {
+    global $product;
+    if ( ! worldtech_sem_preco( $product ) ) { return; }
+    $numero = '595975682071';
+    $nome   = esc_js( $product->get_name() );
+    ?>
+    <script>
+    (function () {
+        var form = document.querySelector('form.cart');
+        if (!form) return;
+        var btn = form.querySelector('.single_add_to_cart_button');
+        if (!btn) return;
+        btn.classList.remove('disabled', 'wc-variation-selection-needed');
+        btn.addEventListener('click', function (e) {
+            e.preventDefault();
+            e.stopImmediatePropagation();
+            var qtyEl = form.querySelector('input.qty');
+            var qty = qtyEl ? (qtyEl.value || '1') : '1';
+            var attrs = [];
+            form.querySelectorAll('select[name^="attribute"]').forEach(function (s) {
+                if (s.value) {
+                    var txt = s.options[s.selectedIndex] ? s.options[s.selectedIndex].text : s.value;
+                    attrs.push(txt);
+                }
+            });
+            var nome = "<?php echo $nome; ?>";
+            var msg = "Olá! Quero consultar o preço:\n\n" + qty + "x " + nome;
+            if (attrs.length) { msg += " (" + attrs.join(', ') + ")"; }
+            msg += "\n\nQuanto está custando?";
+            window.open("https://wa.me/<?php echo $numero; ?>?text=" + encodeURIComponent(msg), '_blank');
+        }, true);
+    })();
+    </script>
+    <?php
+} );
+
+// 4) Estilo do botao (verde WhatsApp)
 add_action( 'wp_head', function () {
     echo '<style>
-        a.worldtech-consultar-btn {
+        a.worldtech-consultar-btn, .worldtech-sem-preco .single_add_to_cart_button {
             background:#25D366 !important; border-color:#25D366 !important; color:#fff !important;
-            display:inline-flex !important; align-items:center !important; justify-content:center !important;
-            text-align:center !important;
         }
     </style>';
 } );
