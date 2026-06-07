@@ -2,11 +2,11 @@
 /**
  * WorldTech - "Consultar preco" via WhatsApp (tudo que NAO for iPhone nem farmaco)
  *
- * Reusa os seletores ORIGINAIS do produto (Tamanho, Cor, Pulso, Quantidade), apenas
- * troca o botao "Adicionar ao carrinho" por "Consultar preco pelo WhatsApp".
- * Criterio: produto NAO esta em Apple (67) nem Farmacia (58).
+ * Reusa os seletores ORIGINAIS do produto, troca o botao de carrinho por
+ * "Consultar preco pelo WhatsApp". Criterio: NAO esta em Apple(67) nem Farmacia(58).
  *
- * Instalar no Code Snippets (sem a linha <?php), Run everywhere, ativar, limpar cache.
+ * IMPORTANTE: codigo 100% PHP (sem ?> no meio) para o plugin Code Snippets nao quebrar.
+ * Instalar no Code Snippets (sem a linha <?php do topo), Run everywhere, ativar, limpar cache.
  */
 
 function worldtech_eh_consultar( $product ) {
@@ -59,53 +59,39 @@ add_filter( 'woocommerce_loop_add_to_cart_link', function ( $html, $product ) {
     return $html;
 }, 100, 2 );
 
-// 5) PAGINA: poe o botao "Consultar preco" no lugar do "Adicionar ao carrinho",
-//    reaproveitando os seletores originais (Tamanho/Cor/Pulso/Quantidade)
+// 5) PAGINA: botao "Consultar preco" no lugar do carrinho, reusando os seletores originais
 add_action( 'woocommerce_after_add_to_cart_button', function () {
     global $product;
     if ( ! worldtech_eh_consultar( $product ) ) { return; }
-    $numero = '595975682071';
-    $nome   = esc_js( $product->get_name() );
-    echo '<button type="button" class="button alt worldtech-consultar-btn worldtech-consultar-go">Consultar preço pelo WhatsApp</button>';
-    ?>
-    <script>
-    (function () {
-        var form = document.querySelector('form.cart');
-        if (!form) return;
-        var go = form.querySelector('.worldtech-consultar-go');
-        if (!go) return;
-        go.addEventListener('click', function (e) {
-            e.preventDefault();
-            var qtyEl = form.querySelector('input.qty');
-            var qty = qtyEl ? (qtyEl.value || '1') : '1';
-            var attrs = [];
-            form.querySelectorAll('select[name^="attribute"]').forEach(function (s) {
-                if (s.value) {
-                    var t = s.options[s.selectedIndex] ? s.options[s.selectedIndex].text : s.value;
-                    attrs.push(t);
-                }
-            });
-            var nome = "<?php echo $nome; ?>";
-            var msg = "Olá! Quero consultar o preço:\n\n" + qty + "x " + nome;
-            if (attrs.length) { msg += " (" + attrs.join(', ') + ")"; }
-            msg += "\n\nQuanto está custando?";
-            window.open("https://wa.me/<?php echo $numero; ?>?text=" + encodeURIComponent(msg), '_blank');
-        });
-    })();
-    </script>
-    <?php
+    $numero  = '595975682071';
+    $nome_js = wp_json_encode( $product->get_name() );
+
+    $out  = '<button type="button" class="button alt worldtech-consultar-btn worldtech-consultar-go">Consultar preço pelo WhatsApp</button>';
+    $out .= '<script>(function(){';
+    $out .= "var form=document.querySelector('form.cart'); if(!form)return;";
+    $out .= "var go=form.querySelector('.worldtech-consultar-go'); if(!go)return;";
+    $out .= "go.addEventListener('click',function(e){e.preventDefault();";
+    $out .= "var q=form.querySelector('input.qty'); var qty=q?(q.value||'1'):'1';";
+    $out .= "var attrs=[]; form.querySelectorAll(\"select[name^='attribute']\").forEach(function(s){if(s.value){var t=s.options[s.selectedIndex]?s.options[s.selectedIndex].text:s.value;attrs.push(t);}});";
+    $out .= "var nome={$nome_js};";
+    $out .= "var nl=String.fromCharCode(10);";
+    $out .= "var msg='Olá! Quero consultar o preço:'+nl+nl+qty+'x '+nome;";
+    $out .= "if(attrs.length){msg+=' ('+attrs.join(', ')+')';}";
+    $out .= "msg+=nl+nl+'Quanto está custando?';";
+    $out .= "window.open('https://wa.me/{$numero}?text='+encodeURIComponent(msg),'_blank');";
+    $out .= '});})();</script>';
+    echo $out;
 } );
 
 // 6) CSS: esconde o botao original de carrinho e estiliza o de consulta
 add_action( 'wp_head', function () {
-    echo '<style>
-        .wt-consultar .single_add_to_cart_button,
-        .wt-consultar .cgkit-sticky-atc,
-        .wt-consultar .shoptimizer-sticky-add-to-cart { display:none !important; }
-        a.worldtech-consultar-btn, button.worldtech-consultar-btn {
-            background:#25D366 !important; border-color:#25D366 !important; color:#fff !important;
-            display:inline-block !important; text-align:center !important; cursor:pointer;
-        }
-        button.worldtech-consultar-go { padding:14px 22px; margin-top:6px; }
-    </style>';
+    echo '<style>'
+       . '.wt-consultar .single_add_to_cart_button,'
+       . '.wt-consultar .cgkit-sticky-atc,'
+       . '.wt-consultar .shoptimizer-sticky-add-to-cart { display:none !important; }'
+       . 'a.worldtech-consultar-btn, button.worldtech-consultar-btn {'
+       . 'background:#25D366 !important; border-color:#25D366 !important; color:#fff !important;'
+       . 'display:inline-block !important; text-align:center !important; cursor:pointer; }'
+       . 'button.worldtech-consultar-go { padding:14px 22px; margin-top:6px; }'
+       . '</style>';
 } );
