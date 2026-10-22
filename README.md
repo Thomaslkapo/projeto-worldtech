@@ -1,63 +1,91 @@
-# Projeto WorldTech
+# WorldTech — Automação de Precificação via WhatsApp + IA
 
-Automação de precificação de produtos (iPhones e fármacos) com integração WhatsApp, n8n e WooCommerce.
+Sistema de automação que monitora mensagens de fornecedores no WhatsApp, interpreta listas de preços com IA e atualiza automaticamente o e-commerce em tempo real — sem intervenção manual.
 
-## O que esse projeto faz
+---
 
-- Lê listas de preços de fornecedores recebidas via WhatsApp
-- Compara preços entre fornecedores e seleciona o melhor
-- Aplica margem de lucro automaticamente (varejo e atacado)
-- Atualiza preços dos produtos no site WordPress/WooCommerce
-- (futuro) Envia lista atualizada para clientes via WhatsApp
+## O problema que resolve
 
-## Tecnologias
+Lojas de atacado recebem listas de preços de múltiplos fornecedores via WhatsApp todos os dias. Atualizar o site manualmente é lento, sujeito a erros e impossível de escalar.
 
-- n8n (orquestração do fluxo)
-- WooCommerce REST API v3 (WordPress)
-- PowerShell (scripts de criação de produtos e aplicação de preços)
-- (futuro) Agente IA para parsing das mensagens dos fornecedores
+Este sistema elimina esse processo: o fornecedor manda a lista, o site atualiza sozinho.
 
-## Estrutura
+---
+
+## Como funciona
 
 ```
-iphones/     Scripts de criação de produtos iPhone 17 (produtos, cores, variações)
-pricing/     aplicar_precos.ps1 + json_precos_consolidado.json (formato padronizado)
-n8n/         workflow_universal.json (fluxo genérico iPhone + fármaco)
-woocommerce/ Scripts de criação do catálogo de fármacos
+Fornecedor envia lista de preços via WhatsApp
+        ↓
+WhatsApp Bridge (Baileys/Node.js) captura a mensagem
+        ↓
+n8n recebe via webhook e envia ao Gemini AI
+        ↓
+Gemini interpreta texto livre → JSON estruturado
+        ↓
+Sistema compara preços entre fornecedores (menor preço vence)
+        ↓
+WooCommerce REST API atualiza preços, estoque e variações
+        ↓
+Site atualizado em menos de 1 minuto
 ```
 
-## Configuração das credenciais
+---
 
-As chaves de API **não** ficam no repositório. Para rodar:
+## Funcionalidades
 
-```powershell
-# 1. Copie o modelo e preencha com suas chaves reais
-Copy-Item secrets.example.ps1 secrets.ps1
-notepad secrets.ps1
+- **Parsing com IA** — Gemini interpreta qualquer formato de lista (texto livre, tabelas, listas informais)
+- **Multi-fornecedor** — compara preços de vários fornecedores, sempre aplica o menor
+- **Acumulação diária** — listas do dia se complementam; preço mais barato sempre prevalece
+- **Varejo e atacado** — regras de margem independentes para cada canal de venda
+- **Criação automática de variações** — se uma cor ou configuração nova aparecer na lista, cria no site automaticamente
+- **Out-of-stock automático** — produtos que somem das listas ficam indisponíveis no site
+- **Fila de mensagens** — processa listas em sequência, sem sobrecarregar a API do Gemini
+- **Lembrete automático** — envia WhatsApp para fornecedor que não mandou lista em 2 dias
+- **Auto-start** — reinicia automaticamente após reboot do servidor (Windows Task Scheduler)
 
-# 2. Rode os scripts (eles leem o secrets.ps1 automaticamente)
-powershell -ExecutionPolicy Bypass -File pricing/aplicar_precos.ps1
+---
+
+## Stack
+
+| Camada | Tecnologia |
+|--------|-----------|
+| Automação / orquestração | [n8n](https://n8n.io) |
+| IA para parsing | Google Gemini API |
+| WhatsApp bridge | [Baileys](https://github.com/WhiskeySockets/Baileys) (Node.js) |
+| E-commerce | WooCommerce REST API v3 (WordPress) |
+| Scripts auxiliares | PowerShell, Node.js |
+| Versionamento | Git / GitHub |
+
+---
+
+## Arquitetura
+
+```
+whatsapp-bridge/
+  index.js              — Bridge WhatsApp, fila de mensagens, acumulação de preços
+  lembrete_fornecedores.ps1 — Lembrete diário para fornecedores inativos
+
+n8n/
+  workflow_universal.json — Workflow: webhook → Gemini → WooCommerce
+
+iphones/                — Scripts de criação de catálogo de iPhones
+woocommerce/            — Scripts de criação de catálogo de fármacos
+pricing/                — Lógica de precificação e margens
+snippets/               — Snippets PHP para o tema WordPress
 ```
 
-O `secrets.ps1` está no `.gitignore` e nunca é enviado ao GitHub.
+---
 
-## Lógica de precificação
+## Segurança
 
-**iPhones — Varejo:** `min(maior_preço + 50, menor_preço + 65)`
-**iPhones — Atacado:** variação ≤35 → +15 | ≤50 → +10 | >50 → +5
-**Fármacos — Varejo:** `maior_preço + 12`
-**Fármacos — Atacado:** `maior_preço + 5`
+Todas as credenciais (chaves de API, tokens WooCommerce, etc.) ficam exclusivamente em `secrets.ps1`, que está no `.gitignore` e **nunca** é enviado ao repositório.
 
-## Formato do JSON padronizado
+---
 
-```json
-{
-  "lista_precos": [
-    { "modeloSite": "iPhone 17", "atributos": {"Armazenamento": "256GB", "Cor": "Black"}, "preco": 770, "fornecedor": "BEST" }
-  ]
-}
-```
+## Resultado
 
-## Status
-
-Em desenvolvimento — fluxo de precificação funcional; parsing automático via IA pendente.
+- Atualização de preços em **menos de 1 minuto** após o fornecedor enviar a lista
+- Zero intervenção manual no processo diário
+- Suporte a catálogos com **centenas de variações** (modelos, cores, armazenamento, origem)
+- Sistema rodando em produção para loja de atacado de eletrônicos e fármacos
