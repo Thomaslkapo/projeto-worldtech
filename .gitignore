@@ -6,3 +6,10 @@ secrets.ps1
 # Saídas temporárias
 *.log
 tmp/
+
+# Projetos de teste (não fazem parte deste projeto)
+pfc-main/
+itai-preview/
+
+# Sessão WhatsApp (nunca versionar)
+sessao/
